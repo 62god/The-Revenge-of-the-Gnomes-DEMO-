@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dgbd233p2jpfp"]
+
+[ext_resource type="PackedScene" uid="uid://bxd0l5e8cmy1d" path="res://Scenes/kill_zone.tscn" id="1_5vu3y"]
+[ext_resource type="Texture2D" uid="uid://dqlgt3mnf2p14" path="res://death conditions/spike 1/spike1f1.png" id="2_psvov"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_1ylos"]
+points = PackedVector2Array(1, -1, 6, 9, -5, 9, 0, -1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7jr8u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_psvov")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Spike" type="Node2D" unique_id=320449702]
+
+[node name="KillZone" parent="." unique_id=1064794711 instance=ExtResource("1_5vu3y")]
+position = Vector2(-204.16504, -143.64798)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=151736989]
+position = Vector2(204.16504, 141.64798)
+shape = SubResource("ConvexPolygonShape2D_1ylos")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1441686998]
+scale = Vector2(0.4375, 0.4375)
+sprite_frames = SubResource("SpriteFrames_7jr8u")
+autoplay = "default"
+frame_progress = 0.61653495
