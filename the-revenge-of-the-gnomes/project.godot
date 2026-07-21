@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="The Revenge Of The Gnomes"
+config/name="The Revenge Of The Gnomes *D Drive*"
 run/main_scene="uid://ceygyy3vrf34q"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"

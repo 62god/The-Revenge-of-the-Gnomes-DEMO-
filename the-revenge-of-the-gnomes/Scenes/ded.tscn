@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2fa3g685ik6s"]
+
+[ext_resource type="FontFile" uid="uid://bw7tui6tkyg6x" path="res://Ithaca-LVB75.ttf" id="1_6bua8"]
+[ext_resource type="Script" uid="uid://b63p3blqr6823" path="res://button.gd" id="2_ls21c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1pdw"]
+bg_color = Color(0.17283267, 0.17283267, 0.17283258, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bua8"]
+bg_color = Color(0.8634364, 4.3317675e-07, 1.0588765e-06, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.75
+offset_top = -42.25
+offset_right = 174.75
+offset_bottom = 42.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_6bua8")
+theme_override_font_sizes/normal_font_size = 84
+text = "u are ded lel"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = 65.0
+offset_right = 157.0
+offset_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8745098, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("1_6bua8")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_v1pdw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6bua8")
+text = "Press Resart if yur bad"
+script = ExtResource("2_ls21c")
+
+[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]
