@@ -2583,6 +2583,7 @@ texture = ExtResource("54_1ovni")
 position = Vector2(-106, 20)
 shape = SubResource("CapsuleShape2D_3unfj")
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="body_entered" from="GlassBottle2" to="GlassBottle2" method="_on_body_entered"]
 [connection signal="body_exited" from="GlassBottle2" to="GlassBottle2" method="_on_body_exited"]
 [connection signal="ready" from="GlassBottle2" to="GlassBottle2" method="_on_ready"]

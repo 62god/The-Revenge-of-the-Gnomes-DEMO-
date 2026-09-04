@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3thn0j7fo1fi"]
+[gd_scene load_steps=7 format=3 uid="uid://d3thn0j7fo1fi"]
 
 [ext_resource type="Script" uid="uid://t7qglkbhjoom" path="res://Scenes/transition.gd" id="1_jnsx0"]
 
@@ -18,21 +18,6 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_vlteq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_3nmoj"]
 resource_name = "Fade_to_clear"
 length = 0.5
@@ -49,11 +34,42 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_vlteq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jnsx0"]
+resource_name = "Start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.03333336, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nshyj"]
 _data = {
 &"Fade_to_black": SubResource("Animation_ah04o"),
 &"Fade_to_clear": SubResource("Animation_3nmoj"),
-&"RESET": SubResource("Animation_vlteq")
+&"RESET": SubResource("Animation_vlteq"),
+&"Start": SubResource("Animation_jnsx0")
 }
 
 [node name="Transition" type="CanvasLayer"]

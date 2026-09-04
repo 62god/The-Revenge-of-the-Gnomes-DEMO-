@@ -1,0 +1,140 @@
+[gd_scene load_steps=10 format=3 uid="uid://ceygyy3vrf34q"]
+
+[ext_resource type="Script" uid="uid://b1pmakakqaje1" path="res://Scenes/Main_title_button_control.gd" id="1_6khh7"]
+[ext_resource type="FontFile" uid="uid://bw7tui6tkyg6x" path="res://Ithaca-LVB75.ttf" id="1_phf2g"]
+[ext_resource type="Texture2D" uid="uid://cxgx1b5s2tto4" path="res://Assets/brackeys_platformer_assets/sprites/Gnome1.png" id="2_6khh7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwrlp"]
+bg_color = Color(0.827451, 0, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6khh7"]
+bg_color = Color(0.29801217, 0.0109287845, 0.3668689, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84h87"]
+bg_color = Color(0, 0.5623899, 0.10623475, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t32dt"]
+bg_color = Color(0.035003316, 0.19209278, 0.010457031, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71b5n"]
+bg_color = Color(0.7844502, 0.62771046, 0.4344354, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1iyi"]
+bg_color = Color(0.4610929, 0.40692803, 0.280808, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_6khh7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15294118, 0.30588236, 0.07450981, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.84313726, 1)
+theme_override_fonts/font = ExtResource("1_phf2g")
+theme_override_font_sizes/font_size = 105
+text = "THE REVENGE OF THE GNOMES"
+
+[node name="Label" type="Label" parent="ColorRect/Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 959.0
+offset_top = 18.0
+offset_right = 959.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.84313726, 1)
+theme_override_fonts/font = ExtResource("1_phf2g")
+theme_override_font_sizes/font_size = 28
+text = "Moose Games (DEMO) 
+(C) 2026"
+
+[node name="Start" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 198.0
+offset_right = 546.6442
+offset_bottom = 313.0
+theme_override_fonts/font = ExtResource("1_phf2g")
+theme_override_font_sizes/font_size = 71
+theme_override_styles/normal = SubResource("StyleBoxFlat_bwrlp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6khh7")
+text = "Play"
+
+[node name="Options" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 353.0
+offset_right = 545.6442
+offset_bottom = 468.0
+theme_override_fonts/font = ExtResource("1_phf2g")
+theme_override_font_sizes/font_size = 71
+theme_override_styles/normal = SubResource("StyleBoxFlat_84h87")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t32dt")
+text = "Options"
+
+[node name="Quit" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 505.0
+offset_right = 547.6442
+offset_bottom = 620.0
+theme_override_fonts/font = ExtResource("1_phf2g")
+theme_override_font_sizes/font_size = 71
+theme_override_styles/normal = SubResource("StyleBoxFlat_71b5n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w1iyi")
+text = "Quit"
+
+[node name="Gnome1" type="Sprite2D" parent="."]
+position = Vector2(791.00006, 302.99997)
+scale = Vector2(12.765623, 12.765622)
+texture = ExtResource("2_6khh7")
+
+[connection signal="pressed" from="ColorRect/Start" to="." method="Start_button"]
+[connection signal="pressed" from="ColorRect/Quit" to="." method="_on_quit_button_pressed"]

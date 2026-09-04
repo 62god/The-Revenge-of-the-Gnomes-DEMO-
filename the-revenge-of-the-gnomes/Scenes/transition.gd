@@ -30,3 +30,4 @@ func transition():
 
 	color_rect.visible = true
 	animation_player.play("Fade_to_black")
+	
