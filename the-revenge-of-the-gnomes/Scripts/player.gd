@@ -14,10 +14,12 @@ var is_dashing: bool = false
 var can_dash: bool = true
 var dash_direction: Vector2 = Vector2.ZERO
 
+@onready var timer: Timer = $Timer
 @onready var dash_timer: Timer = $DashTimer
 @onready var dash_particles: GPUParticles2D = $DashParticles
 @onready var player_health_label: RichTextLabel = $"../CanvasLayer/BattleUI/PlayerHealthLabel"
 @onready var battle_ui: ColorRect = $"../CanvasLayer/BattleUI"
+
 
 var jumpcount = 0
 var isgrounded = true
@@ -28,10 +30,15 @@ var isCrouching = false
 @onready var double_jump: AudioStreamPlayer2D = $DoubleJump
 const DUST = preload("uid://cedim0el5ndt2")
 
+
 # 2. Ready Function & Timer Signal Connection
+
+const DASH_COOLDOWN = 0.10
+var dash_cooldown_timer: float = 0.0
 
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
+	dash_cooldown_timer = DASH_COOLDOWN
 
 func pauseMovement():
 	inGUI = true
@@ -62,6 +69,9 @@ func get_direction_from_input() -> Vector2:
 
 # 4. Handle Dash Logic & Trail/Particles Spawning
 func handle_dash(_delta: float) -> void:
+	if dash_cooldown_timer > 0:
+		dash_cooldown_timer -= _delta
+
 	if can_dash and Input.is_action_just_pressed("Dash"):
 		is_dashing = true
 		can_dash = false
@@ -76,7 +86,7 @@ func handle_dash(_delta: float) -> void:
 	else:
 		dash_particles.emitting = false
 		
-	if is_on_floor() or is_on_wall():
+	if not is_dashing and dash_cooldown_timer <= 0 and (is_on_floor() or is_on_wall()):
 		can_dash = true
 
 # 5. Physics Process Integration
@@ -201,6 +211,7 @@ func give_flowers(amount):
 	
 func _ready():
 	add_to_group("saveable")
+	dash_timer.one_shot = true
 	dash_timer.timeout.connect(_on_dash_timer_timeout)
 	
 func get_save_data():

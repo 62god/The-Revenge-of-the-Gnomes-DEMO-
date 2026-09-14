@@ -100,6 +100,9 @@ collision_layer = 2
 script = ExtResource("1_onrkg")
 dash_object = ExtResource("2_7dp3o")
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [node name="crouch" type="CollisionShape2D" parent="."]
 position = Vector2(-0.9999995, 9.545)
 scale = Vector2(0.645, 0.645)

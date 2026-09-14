@@ -8,6 +8,8 @@ var health = 6.0
 @onready var playerHealth: CharacterBody2D = $"../Player"
 @onready var battle_ui: ColorRect = $"../CanvasLayer/BattleUI"
 @onready var the_manager: Node = $"../THE_MANAGER"
+@onready var tree_guy: AnimatedSprite2D = $"../Tree"
+
 
 var wait = false
 var attack = true
@@ -19,6 +21,7 @@ func Take_Damage(damage: float) -> void:
 	if health <= 0:
 		print("ENEMEY IS Resting in piss")
 		battle_ui.endbattle()
+		tree_guy.queue_free()
 		queue_free()
 		
 var player_damage: float = 3
