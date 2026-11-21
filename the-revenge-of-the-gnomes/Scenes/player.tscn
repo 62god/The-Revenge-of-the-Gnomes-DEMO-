@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://doqqppbh21uig"]
+[gd_scene load_steps=25 format=3 uid="uid://doqqppbh21uig"]
 
 [ext_resource type="Script" uid="uid://drtm4kg28q1j6" path="res://Scripts/player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://d3vowud7efww7" path="res://dash_sprite.tscn" id="2_7dp3o"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://bnyklm4mvfmp" path="res://Assets/brackeys_platformer_assets/sprites/gnomecrouchrun2.png" id="8_ukyrk"]
 [ext_resource type="AudioStream" uid="uid://es6vghwii1l0" path="res://Assets/brackeys_platformer_assets/sounds/jumpdouble.wav" id="12_pu2lt"]
 [ext_resource type="Texture2D" uid="uid://bbns3n7rbj6gm" path="res://Assets/brackeys_platformer_assets/sprites/dash_particle.png" id="13_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://dbye4i5jmp4v8" path="res://Assets/brackeys_platformer_assets/Gnomehit2.png" id="14_l6n3p"]
+[ext_resource type="Texture2D" uid="uid://nwmnfbkk1iqu" path="res://Assets/brackeys_platformer_assets/Gnomehit3.png" id="15_olqyp"]
+[ext_resource type="Texture2D" uid="uid://cs8wdprtb6qu3" path="res://Assets/brackeys_platformer_assets/Gnomehit4.png" id="16_wpjfl"]
+[ext_resource type="Texture2D" uid="uid://cfnahghk2suma" path="res://Assets/brackeys_platformer_assets/Gnomehit5.png" id="17_bi64h"]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_gymyn"]
 points = PackedVector2Array(12.403101, 10.007753, 12.403101, -7.0465107, -7.1525574e-07, -17.899225, -12.403101, 10.007753, 12.403101, 10.007753, 0, 0)
@@ -74,6 +78,23 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_l6n3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_olqyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_wpjfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_bi64h")
+}],
+"loop": false,
+"name": &"swing",
+"speed": 10.0
 }]
 
 [sub_resource type="Curve" id="Curve_7dp3o"]
@@ -98,6 +119,7 @@ z_index = -1
 position = Vector2(0, 1)
 collision_layer = 2
 script = ExtResource("1_onrkg")
+acceleration = 250.0
 dash_object = ExtResource("2_7dp3o")
 
 [node name="Timer" type="Timer" parent="."]
@@ -131,6 +153,7 @@ volume_db = 15.0
 position = Vector2(-1, 9)
 
 [node name="DashTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="DashParticles" type="GPUParticles2D" parent="."]
 emitting = false
@@ -139,3 +162,4 @@ texture = ExtResource("13_ukyrk")
 process_material = SubResource("ParticleProcessMaterial_fd4e3")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
