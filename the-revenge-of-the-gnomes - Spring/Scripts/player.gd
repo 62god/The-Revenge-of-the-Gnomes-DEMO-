@@ -1,3 +1,4 @@
+
 extends CharacterBody2D
 
 # ==========================================
@@ -26,29 +27,7 @@ var SPEED: float = 75.0
 
 var default_sprite_scale: Vector2
 const JUMP_VELOCITY: float = -300.0
-
-# ==========================================
-# JUMP PAD SETTINGS (3 tiers)
-# ==========================================
-
-# Base launch speeds for each tier.
 const JUMP_PAD_HEIGHT: float = -500.0
-const SUPER_JUMP_PAD_HEIGHT: float = -650.0
-const SUPER_SUPER_JUMP_PAD_HEIGHT: float = -800.0
-
-# Extra speed added when you hit a pad while already moving along its launch direction.
-# Each tier is stronger than the last.
-const JUMP_PAD_BONUS: float = 100.0
-const SUPER_JUMP_PAD_BONUS: float = 175.0
-const SUPER_SUPER_JUMP_PAD_BONUS: float = 250.0
-
-# Hard cap so chaining pads can't get out of control.
-const PAD_MAX_SPEED: float = 1500.0
-
-# After a launch, normal horizontal control is paused briefly so the launch isn't overwritten.
-@export var launch_lock_time: float = 0.25
-@export var launch_air_drag: float = 150.0
-var launch_lock_timer: float = 0.0
 
 # Celeste-style jump assistance
 @export var coyote_time: float = 0.10
@@ -129,6 +108,9 @@ func resumeMovement() -> void:
 # CONTROLLER DETECTION
 # ==========================================
 
+
+
+	
 func is_controller() -> bool:
 	var joy_axis_x := Input.get_joy_axis(
 		0,
@@ -288,12 +270,6 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# ==========================================
-	# LAUNCH LOCK TIMER (jump pads)
-	# ==========================================
-
-	launch_lock_timer = maxf(launch_lock_timer - delta, 0.0)
-
-	# ==========================================
 	# JUMP AND DOUBLE JUMP
 	# ==========================================
 
@@ -316,9 +292,8 @@ func _physics_process(delta: float) -> void:
 	# VARIABLE JUMP HEIGHT
 	# ==========================================
 
-	# Ignored right after a pad launch so releasing jump doesn't chop it.
 	if Input.is_action_just_released("ui_accept"):
-		if velocity.y < 0.0 and launch_lock_timer <= 0.0:
+		if velocity.y < 0.0:
 			velocity.y *= jump_cut_multiplier
 
 	# ==========================================
@@ -404,47 +379,39 @@ func _physics_process(delta: float) -> void:
 	# CELESTE-STYLE HORIZONTAL MOVEMENT
 	# ==========================================
 
-	if launch_lock_timer > 0.0:
-		# Just launched from a pad: keep momentum, only apply light drag.
+	var target_speed: float = movement_direction * SPEED
+	var current_acceleration: float
+
+	if movement_direction != 0.0:
+		if is_on_floor():
+			current_acceleration = acceleration
+		else:
+			current_acceleration = air_acceleration
+
+		# Quickly reverse direction when pressing
+		# the opposite movement key.
+		if (
+			sign(velocity.x) != sign(movement_direction)
+			and abs(velocity.x) > 1.0
+		):
+			current_acceleration = turn_acceleration
+
+		velocity.x = move_toward(
+			velocity.x,
+			target_speed,
+			current_acceleration * delta
+		)
+	else:
+		if is_on_floor():
+			current_acceleration = deceleration
+		else:
+			current_acceleration = air_deceleration
+
 		velocity.x = move_toward(
 			velocity.x,
 			0.0,
-			launch_air_drag * delta
+			current_acceleration * delta
 		)
-	else:
-		var target_speed: float = movement_direction * SPEED
-		var current_acceleration: float
-
-		if movement_direction != 0.0:
-			if is_on_floor():
-				current_acceleration = acceleration
-			else:
-				current_acceleration = air_acceleration
-
-			# Quickly reverse direction when pressing
-			# the opposite movement key.
-			if (
-				sign(velocity.x) != sign(movement_direction)
-				and abs(velocity.x) > 1.0
-			):
-				current_acceleration = turn_acceleration
-
-			velocity.x = move_toward(
-				velocity.x,
-				target_speed,
-				current_acceleration * delta
-			)
-		else:
-			if is_on_floor():
-				current_acceleration = deceleration
-			else:
-				current_acceleration = air_deceleration
-
-			velocity.x = move_toward(
-				velocity.x,
-				0.0,
-				current_acceleration * delta
-			)
 
 	# ==========================================
 	# APPLY MOVEMENT
@@ -527,6 +494,9 @@ func give_flowers(amount: int) -> void:
 
 func _ready() -> void:
 	add_to_group("saveable")
+	
+	global_position = TheManager.spawnPosition
+	
 	default_sprite_scale = animated_sprite_2d.scale
 	dash_timer.one_shot = true
 
@@ -571,46 +541,13 @@ func get_save_data() -> Dictionary:
 		"flowers": flowers,
 	}
 
-
-# ==========================================
-# JUMP PADS
-# ==========================================
-
-func _launch_from_pad(pad: Node2D, base_speed: float, bonus: float) -> void:
+func launch_from_jump_pad() -> void:
 	Level1.shake(2, .2)
 	play_jump_stretch()
-
-	# Pad's local "up" rotated into world space.
-	var launch_dir := Vector2.UP.rotated(pad.global_rotation)
-
-	# Speed you're already carrying in the launch direction (0 if moving away from it).
-	var current_along := maxf(velocity.dot(launch_dir), 0.0)
-
-	# Never launch slower than the pad's base speed, but stack the bonus on carried speed.
-	var new_speed := minf(
-		maxf(base_speed, current_along + bonus),
-		PAD_MAX_SPEED
-	)
-
-	velocity = launch_dir * new_speed
-
-	launch_lock_timer = launch_lock_time
+	velocity.y = JUMP_PAD_HEIGHT
 	jumpcount = 1
 	coyote_timer = 0.0
 	jump_buffer_timer = 0.0
-
-
-func launch_from_jump_pad(pad: Node2D) -> void:
-	_launch_from_pad(pad, abs(JUMP_PAD_HEIGHT), JUMP_PAD_BONUS)
-
-
-func launch_from_super_jump_pad(pad: Node2D) -> void:
-	_launch_from_pad(pad, abs(SUPER_JUMP_PAD_HEIGHT), SUPER_JUMP_PAD_BONUS)
-
-
-func launch_from_super_super_jump_pad(pad: Node2D) -> void:
-	_launch_from_pad(pad, abs(SUPER_SUPER_JUMP_PAD_HEIGHT), SUPER_SUPER_JUMP_PAD_BONUS)
-
 
 # ==========================================
 # JUMP STRETCH

@@ -7,4 +7,4 @@ func _on_body_entered(body: Node2D) -> void:
 
 	if body is CharacterBody2D:
 		print("PLAYER DETECTED")
-		CheckpointManager.set_checkpoint(respawn_point.global_position)
+		TheManager.changeSpawn(respawn_point.global_position)

@@ -20,7 +20,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_1w5vy")
 }],
-"loop": 0,
+"loop": false,
 "name": &"Activate",
 "speed": 10.0
 }, {
@@ -28,7 +28,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_1w5vy")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -45,6 +45,8 @@ size = Vector2(21, 8)
 sprite_frames = SubResource("SpriteFrames_42hq0")
 animation = &"Activate"
 autoplay = "default"
+frame = 3
+frame_progress = 1.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=532867597]
 collision_layer = 2
