@@ -21,7 +21,7 @@ var _shake_strength: float = 0.0
 var _shake_duration: float = 0.0
 var _shake_elapsed: float = 0.0
 var _shake_base_offset: Vector2 = Vector2.ZERO
-var spawnPoint: Vector2 = Vector2.ZERO;
+
 
 func shake(strength: float, amount: float) -> void:
 	if strength <= 0.0 or amount <= 0.0:

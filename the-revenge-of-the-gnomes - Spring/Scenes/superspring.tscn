@@ -1,34 +1,34 @@
-[gd_scene format=3 uid="uid://bq8f2skf06klj"]
+[gd_scene format=3 uid="uid://vukhowu6lgx"]
 
-[ext_resource type="Texture2D" uid="uid://didnrttpf11qo" path="res://Gameplay/OldSPring1.png" id="1_1w5vy"]
-[ext_resource type="Texture2D" uid="uid://h534osnsfv5v" path="res://Gameplay/OldSPring2.png" id="2_7tg8b"]
-[ext_resource type="Script" uid="uid://kb76v4fef21v" path="res://Scenes/area_2d.gd" id="3_77tl1"]
-[ext_resource type="AudioStream" uid="uid://ccg11waw0tldg" path="res://Scenes/jump (mp3cut.net).wav" id="4_7tg8b"]
+[ext_resource type="Texture2D" uid="uid://btgquuajfsc8r" path="res://Gameplay/OldSuperSpring.png" id="1_ep4ya"]
+[ext_resource type="Script" uid="uid://kb76v4fef21v" path="res://Scenes/area_2d.gd" id="1_in3y1"]
+[ext_resource type="AudioStream" uid="uid://ccg11waw0tldg" path="res://Scenes/jump (mp3cut.net).wav" id="2_7ek7e"]
+[ext_resource type="Texture2D" uid="uid://ch76tshn6hago" path="res://Gameplay/OldSuperSpring1.png" id="2_qrn4h"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_42hq0"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_07orm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_1w5vy")
+"texture": ExtResource("1_ep4ya")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_7tg8b")
+"texture": ExtResource("2_qrn4h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_7tg8b")
+"texture": ExtResource("2_qrn4h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_1w5vy")
+"texture": ExtResource("1_ep4ya")
 }],
-"loop": false,
+"loop": 1,
 "name": &"Activate",
 "speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_1w5vy")
+"texture": ExtResource("1_ep4ya")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -42,16 +42,16 @@ size = Vector2(21, 8)
 [node name="Spring" type="Node2D" unique_id=1100422652]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=600885050]
-sprite_frames = SubResource("SpriteFrames_42hq0")
+sprite_frames = SubResource("SpriteFrames_07orm")
 animation = &"Activate"
 autoplay = "default"
-frame = 3
-frame_progress = 1.0
+frame_progress = 0.44908738
 
 [node name="Area2D" type="Area2D" parent="." unique_id=532867597]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("3_77tl1")
+script = ExtResource("1_in3y1")
+spring_type = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1429604893]
 z_index = 5
@@ -59,7 +59,7 @@ position = Vector2(-0.5, 9.5)
 shape = SubResource("RectangleShape2D_7occl")
 
 [node name="DoubleJump" type="AudioStreamPlayer2D" parent="Area2D" unique_id=356244808]
-stream = ExtResource("4_7tg8b")
+stream = ExtResource("2_7ek7e")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=429600021]
 

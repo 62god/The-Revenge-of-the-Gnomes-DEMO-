@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6u63835xuyvs"
-path="res://.godot/imported/pixel-shield-emblem-with-lightning-bolt-symbol-retro-8-bit-security-icon-minimalist-black-and-white-gaming-badge-design-vector.webp-87307e090b5abfa5e8bcf600583a1dcf.ctex"
+uid="uid://btgquuajfsc8r"
+path="res://.godot/imported/OldSuperSpring.png-f802356519672e484b77033cd12670a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/pixel-shield-emblem-with-lightning-bolt-symbol-retro-8-bit-security-icon-minimalist-black-and-white-gaming-badge-design-vector.webp"
-dest_files=["res://.godot/imported/pixel-shield-emblem-with-lightning-bolt-symbol-retro-8-bit-security-icon-minimalist-black-and-white-gaming-badge-design-vector.webp-87307e090b5abfa5e8bcf600583a1dcf.ctex"]
+source_file="res://Gameplay/OldSuperSpring.png"
+dest_files=["res://.godot/imported/OldSuperSpring.png-f802356519672e484b77033cd12670a2.ctex"]
 
 [params]
 

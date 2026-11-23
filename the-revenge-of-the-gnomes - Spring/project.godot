@@ -33,7 +33,6 @@ Transition="*res://Scenes/transition.tscn"
 SignalBus="*res://singletons/SignalBus.gd"
 CheckpointManager="*res://Scripts/checkpoint_manager.gd"
 Level1="*res://Scripts/level1.gd"
-TheManager="*res://Scenes/the_manager.gd"
 
 [display]
 
