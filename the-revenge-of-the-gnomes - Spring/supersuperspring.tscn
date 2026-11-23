@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://ee181d1gtlrg"]
+
+[ext_resource type="Texture2D" uid="uid://cabro83o4ysu" path="res://Gameplay/OldSuperSuperSpring.png" id="1_w14rk"]
+[ext_resource type="Texture2D" uid="uid://c8tgtll07wug5" path="res://Gameplay/OldSuperSuperSpring1.png" id="2_041o4"]
+[ext_resource type="Script" uid="uid://kb76v4fef21v" path="res://Scenes/area_2d.gd" id="3_rp4hq"]
+[ext_resource type="AudioStream" uid="uid://ccg11waw0tldg" path="res://Scenes/jump (mp3cut.net).wav" id="4_msea8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_feg62"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w14rk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_041o4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_041o4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_w14rk")
+}],
+"loop": 1,
+"name": &"Activate",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w14rk")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7occl"]
+size = Vector2(25, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1w5vy"]
+size = Vector2(21, 8)
+
+[node name="Spring" type="Node2D" unique_id=1100422652]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=600885050]
+sprite_frames = SubResource("SpriteFrames_feg62")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=532867597]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_rp4hq")
+spring_type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1429604893]
+z_index = 5
+position = Vector2(-0.5, 9.5)
+shape = SubResource("RectangleShape2D_7occl")
+
+[node name="DoubleJump" type="AudioStreamPlayer2D" parent="Area2D" unique_id=356244808]
+stream = ExtResource("4_msea8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=429600021]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1350739871]
+position = Vector2(-0.5, 12)
+shape = SubResource("RectangleShape2D_1w5vy")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="Area2D" method="_on_body_shape_entered"]
