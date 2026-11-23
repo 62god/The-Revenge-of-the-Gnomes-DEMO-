@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c7250c35pouwx"]
+[gd_scene load_steps=108 format=3 uid="uid://c7250c35pouwx"]
 
 [ext_resource type="PackedScene" uid="uid://doqqppbh21uig" path="res://Scenes/player.tscn" id="1_5otrc"]
 [ext_resource type="Script" uid="uid://doxhaifgvs1xr" path="res://Scripts/level1.gd" id="1_doca4"]
@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://bi27ihgph2ruu" path="res://Scenes/color_rect.gd" id="19_w4ffg"]
 [ext_resource type="FontFile" uid="uid://bw7tui6tkyg6x" path="res://Ithaca-LVB75.ttf" id="20_hwhuf"]
 [ext_resource type="Texture2D" uid="uid://weq0h6twkk1f" path="res://Assets/pixel.png" id="21_sejlb"]
-[ext_resource type="Texture2D" uid="uid://c7plvr81gwygo" path="res://Assets/pixel-shield-emblem-with-lightning-bolt-symbol-retro-8-bit-security-icon-minimalist-black-and-white-gaming-badge-design-vector-removebg-preview.png" id="22_fxsqa"]
+[ext_resource type="Texture2D" uid="uid://c7plvr81gwygo" path="res://Assets/pixel-shield.png" id="22_fxsqa"]
 [ext_resource type="Script" uid="uid://d0563qoc7fyht" path="res://Scenes/enemyhealth.gd" id="22_vfdfo"]
 [ext_resource type="Script" uid="uid://biktwq1ugeiit" path="res://Scenes/chest.gd" id="24_86pyb"]
 [ext_resource type="Texture2D" uid="uid://dcj7rt7ptecv" path="res://Scenes/RPG Chests.png" id="25_c206h"]
@@ -939,7 +939,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qi4n4")
 }],
-"loop": 0,
+"loop": false,
 "name": &"Opened",
 "speed": 10.0
 }, {
@@ -947,7 +947,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rlgn4")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -1014,7 +1014,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("58_qofse")
 }],
-"loop": 1,
+"loop": true,
 "name": &"Idle",
 "speed": 6.0
 }]
@@ -1058,7 +1058,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("69_vy4k7")
 }],
-"loop": 1,
+"loop": true,
 "name": &"Idle",
 "speed": 15.0
 }]
@@ -1066,19 +1066,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddj28"]
 size = Vector2(65, 60)
 
-[node name="Level1" type="Node2D" unique_id=1860421314]
+[node name="Level1" type="Node2D"]
 script = ExtResource("1_doca4")
 
-[node name="KillZone" parent="." unique_id=565974443 instance=ExtResource("5_sgcg8")]
+[node name="KillZone" parent="." instance=ExtResource("5_sgcg8")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=1702571071]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(0, 106)
 shape = SubResource("WorldBoundaryShape2D_sgcg8")
 
-[node name="SoundPlayer" type="Node" parent="." unique_id=9458259]
+[node name="SoundPlayer" type="Node" parent="."]
 script = ExtResource("9_xodea")
 
-[node name="TileMap2" type="TileMap" parent="." unique_id=300185881]
+[node name="TileMap2" type="TileMap" parent="."]
 z_index = 1
 position = Vector2(0, 1)
 tile_set = SubResource("TileSet_ifurh")
@@ -1088,279 +1088,279 @@ layer_1/name = "Layer1"
 layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array(-65539, 1703936, 14, -3, 1507328, 15, -131074, 1769472, 13, -65538, 1769472, 14, -2, 1769472, 14, -131073, 1572864, 14, -65537, 1769472, 14, -1, 1769472, 14, 65534, 1703936, 15, -131072, 1835008, 13, -65535, 1507328, 13, 131071, 1441792, 14, 65535, 1769472, 14, -65536, 1769472, 14, 0, 1769472, 14, 65536, 1507328, 15, 65537, 1769472, 15, 1, 1769472, 14, 196607, 1769472, 14, -65542, 1507328, 14, -6, 1507328, 15, -65541, 1507328, 14, -5, 1507328, 15, -65540, 1572864, 14, -4, 1507328, 15, -196615, 1441792, 14, -131079, 1441792, 14, -65543, 1441792, 14, -7, 1441792, 15, -196614, 1507328, 14, -131078, 1507328, 14, -196613, 1507328, 14, -196612, 1507328, 14, -196611, 1507328, 14, -196610, 1507328, 14, -262151, 1441792, 13, -262150, 1507328, 13, -262149, 1507328, 13, -262148, 1507328, 13, -262147, 1507328, 13, -262146, 1507328, 13, -262145, 1572864, 13, -196609, 1572864, 14, -458768, 1507328, 14, -393232, 1507328, 14, -327696, 1507328, 14, -458767, 1507328, 14, -393231, 1507328, 14, -327695, 1507328, 14, -458766, 1507328, 14, -393230, 1507328, 14, -327694, 1507328, 14, -458765, 1507328, 14, -393229, 1507328, 14, -327693, 1507328, 14, -458764, 1507328, 14, -393228, 1507328, 14, -327692, 1507328, 14, -458763, 1507328, 14, -393227, 1507328, 14, -327691, 1507328, 14, -524298, 1507328, 14, -458762, 1507328, 14, -393226, 1507328, 14, -524297, 1507328, 14, -458761, 1507328, 14, -524296, 1507328, 14, -458760, 1507328, 14, -524295, 1507328, 14, -458759, 1507328, 14, -524294, 1507328, 14, -458758, 1507328, 14, -524293, 1507328, 14, -458757, 1507328, 14, -524292, 1507328, 14, -458756, 1507328, 14, -524291, 1507328, 14, -458755, 1507328, 14, -524290, 1507328, 14, -458754, 1507328, 14, -524299, 1507328, 14, -524289, 1507328, 14, -458753, 1507328, 14, -589824, 1507328, 14, -524288, 1507328, 14, -589823, 1507328, 14, -524287, 1507328, 14, -589822, 1572864, 14, -524286, 1572864, 14, -720896, 1507328, 14, -655360, 1507328, 14, -720895, 1507328, 14, -655359, 1507328, 14, -720894, 1572864, 14, -655358, 1572864, 14, -655362, 1507328, 14, -589826, 1507328, 14, -655361, 1507328, 14, -589825, 1507328, 14, -655364, 1507328, 14, -589831, 1507328, 14, -589830, 1507328, 14, -655370, 1441792, 14, -589834, 1507328, 14, -655369, 1507328, 14, -589833, 1507328, 14, -655368, 1507328, 14, -589832, 1507328, 14, -655373, 1441792, 14, -589837, 1507328, 14, -655372, 1507328, 14, -589836, 1507328, 14, -655371, 1572864, 14, -589835, 1507328, 14, -655376, 1507328, 14, -589840, 1507328, 14, -655375, 1507328, 14, -589839, 1507328, 14, -655374, 1572864, 14, -589838, 1507328, 14, -524304, 1507328, 14, -524303, 1507328, 14, -524302, 1507328, 14, -327690, 1572864, 14, -524300, 1507328, 14, -524301, 1507328, 14, -458748, 1507328, 14, -393212, 1507328, 14, -327676, 1507328, 14, -262140, 1507328, 14, -196604, 1507328, 14, -458747, 1507328, 14, -393211, 1507328, 14, -327675, 1507328, 14, -262139, 1507328, 14, -196603, 1507328, 14, -458746, 1507328, 14, -393210, 1507328, 14, -327674, 1507328, 14, -262138, 1507328, 14, -196602, 1507328, 14, -458745, 1507328, 14, -393209, 1507328, 14, -327673, 1507328, 14, -262137, 1507328, 14, -196601, 1507328, 14, -458744, 1507328, 14, -393208, 1507328, 14, -327672, 1507328, 14, -262136, 1507328, 14, -196600, 1507328, 14, -65534, 1638400, 19, -262160, 1507328, 15, -262159, 1507328, 15, -262158, 1507328, 15, -262157, 1507328, 15, -262156, 1507328, 15, -262155, 1507328, 15, -262154, 1507328, 15, -327697, 1441792, 14, -393233, 1441792, 14, -458769, 1441792, 14, -524305, 1441792, 14, -589841, 1441792, 14, -655377, 1441792, 14, -262161, 1441792, 15, -655367, 1507328, 14, -655366, 1507328, 14, -655365, 1507328, 14, -589829, 1507328, 14, -589828, 1507328, 14, -589827, 1507328, 14, -655363, 1507328, 14, -720913, 1441792, 14, -786430, 1572864, 14, -720912, 1507328, 14, -720911, 1507328, 14, -720910, 1507328, 14, -720909, 1507328, 14, -720908, 1507328, 14, -720907, 1507328, 14, -720906, 1507328, 14, -720905, 1507328, 14, -720904, 1507328, 14, -720903, 1507328, 14, -720902, 1507328, 14, -720901, 1507328, 14, -720900, 1507328, 14, -720899, 1507328, 14, -720898, 1507328, 14, -720897, 1507328, 14, -786432, 1507328, 14, -786431, 1507328, 14, -786448, 1507328, 13, -786447, 1507328, 13, -786446, 1507328, 13, -786445, 1507328, 13, -786444, 1507328, 13, -786443, 1507328, 13, -786442, 1507328, 13, -786441, 1507328, 13, -786440, 1507328, 13, -786439, 1507328, 13, -786438, 1507328, 13, -786437, 1507328, 13, -786436, 1507328, 13, -786435, 1507328, 13, -786434, 1507328, 13, -786433, 1507328, 13, -851968, 1507328, 13, -851967, 1507328, 13, -851966, 1572864, 13, -786449, 1441792, 13, -393225, 1507328, 15, -393224, 1507328, 15, -393223, 1507328, 15, -393222, 1507328, 15, -393221, 1507328, 15, -393220, 1507328, 15, -393219, 1507328, 15, -393218, 1507328, 15, -393217, 1507328, 15, -458752, 1507328, 15, -458751, 1507328, 15, -458750, 1572864, 15, -131070, 1441792, 14, -131069, 1441792, 15, -524285, 1441792, 13, -131063, 1572864, 15, -196605, 1441792, 14, -262141, 1441792, 14, -327677, 1441792, 14, -393213, 1441792, 14, -458749, 1441792, 14, -524284, 1507328, 13, -524283, 1507328, 13, -524282, 1507328, 13, -524281, 1507328, 13, -524280, 1507328, 13, -393207, 1572864, 14, -327671, 1572864, 14, -262135, 1572864, 14, -196599, 1572864, 14, -131064, 1507328, 15, -131065, 1507328, 15, -131066, 1507328, 15, -131067, 1507328, 15, -131068, 1507328, 15, -524279, 1572864, 13, -458743, 1572864, 14, -1048565, 1507328, 13, -983029, 1507328, 14, -917493, 1507328, 14, -851957, 1507328, 14, -786421, 1507328, 14, -720885, 1507328, 14, -655349, 1507328, 14, -589813, 1507328, 14, -1048564, 1507328, 13, -983028, 1507328, 14, -917492, 1507328, 14, -851956, 1507328, 14, -786420, 1507328, 14, -720884, 1507328, 14, -655348, 1507328, 14, -589812, 1507328, 14, -1048563, 1507328, 13, -983027, 1507328, 14, -917491, 1507328, 14, -851955, 1507328, 14, -786419, 1507328, 14, -720883, 1507328, 14, -655347, 1507328, 14, -589811, 1507328, 14, -1048562, 1507328, 13, -983026, 1507328, 14, -917490, 1507328, 14, -851954, 1507328, 14, -786418, 1507328, 14, -720882, 1507328, 14, -655346, 1507328, 14, -589810, 1507328, 14, -1048561, 1507328, 13, -983025, 1507328, 14, -917489, 1507328, 14, -851953, 1507328, 14, -786417, 1507328, 14, -720881, 1507328, 14, -655345, 1507328, 14, -589809, 1507328, 14, -1048560, 1507328, 13, -983024, 1507328, 14, -917488, 1507328, 14, -851952, 1507328, 14, -786416, 1507328, 14, -720880, 1507328, 14, -655344, 1507328, 14, -589808, 1507328, 14, -1048559, 1507328, 13, -983023, 1507328, 14, -917487, 1507328, 14, -851951, 1507328, 14, -786415, 1507328, 14, -720879, 1507328, 14, -655343, 1507328, 14, -589807, 1507328, 14, -1048558, 1572864, 13, -983022, 1572864, 14, -917486, 1572864, 14, -851950, 1572864, 14, -786414, 1572864, 14, -720878, 1572864, 14, -655342, 1572864, 14, -589806, 1572864, 14, -1048566, 1441792, 13, -983030, 1441792, 14, -917494, 1441792, 14, -851958, 1441792, 14, -786422, 1441792, 14, -720886, 1441792, 14, -655350, 1441792, 14, -589814, 1441792, 14, -524278, 1441792, 15, -524277, 1507328, 15, -524276, 1507328, 15, -524275, 1507328, 15, -524274, 1507328, 15, -524273, 1507328, 15, -524272, 1507328, 15, -524271, 1507328, 15, -524270, 1572864, 15, -1507301, 1245184, 13, -1441765, 1441792, 14, -1376229, 1441792, 14, -1310693, 1441792, 14, -1245157, 1441792, 14, -1179621, 1441792, 14, -1114085, 1441792, 14, -1507300, 1507328, 13, -1441764, 1507328, 14, -1376228, 1507328, 14, -1310692, 1507328, 14, -1245156, 1507328, 14, -1179620, 1507328, 14, -1114084, 1507328, 14, -1507299, 1507328, 13, -1441763, 1507328, 14, -1376227, 1507328, 14, -1310691, 1507328, 14, -1245155, 1507328, 14, -1179619, 1507328, 14, -1114083, 1507328, 14, -1507298, 1507328, 13, -1441762, 1507328, 14, -1376226, 1507328, 14, -1310690, 1507328, 14, -1245154, 1507328, 14, -1179618, 1507328, 14, -1114082, 1507328, 14, -1507297, 1507328, 13, -1441761, 1507328, 14, -1376225, 1507328, 14, -1310689, 1507328, 14, -1245153, 1507328, 14, -1179617, 1507328, 14, -1114081, 1507328, 14, -1507296, 1507328, 13, -1441760, 1507328, 14, -1376224, 1507328, 14, -1310688, 1507328, 14, -1245152, 1507328, 14, -1179616, 1507328, 14, -1114080, 1507328, 14, -1507295, 1507328, 13, -1441759, 1507328, 14, -1376223, 1507328, 14, -1310687, 1507328, 14, -1245151, 1507328, 14, -1179615, 1507328, 14, -1114079, 1507328, 14, -1507294, 1507328, 13, -1441758, 1507328, 14, -1376222, 1507328, 14, -1310686, 1507328, 14, -1245150, 1507328, 14, -1179614, 1507328, 14, -1114078, 1507328, 14, -1507293, 1507328, 13, -1441757, 1507328, 14, -1376221, 1507328, 14, -1310685, 1507328, 14, -1245149, 1507328, 14, -1179613, 1507328, 14, -1114077, 1507328, 14, -1507292, 1507328, 13, -1441756, 1507328, 14, -1376220, 1507328, 14, -1310684, 1507328, 14, -1245148, 1507328, 14, -1179612, 1507328, 14, -1114076, 1507328, 14, -1376219, 1507328, 14, -1179611, 1507328, 14, -1048549, 1507328, 15, -1048548, 1507328, 15, -1048547, 1507328, 15, -1048546, 1507328, 15, -1048545, 1507328, 15, -1048544, 1507328, 15, -1048543, 1507328, 15, -1048542, 1507328, 15, -1048541, 1507328, 15, -1048540, 1507328, 15, -1310683, 1507328, 14, -1245147, 1507328, 14, -1245146, 1507328, 14, -1245145, 1507328, 14, -1310681, 1507328, 14, -1310682, 1507328, 14, -1310680, 1507328, 14, -1245144, 1507328, 14, -1245143, 1507328, 14, -1245142, 1507328, 14, -1310678, 1507328, 14, -1310679, 1507328, 14, -1245141, 1507328, 14, -1245140, 1507328, 14, -1245139, 1507328, 14, -1310676, 1507328, 14, -1310677, 1507328, 14, -1310675, 1507328, 14, -1310674, 1507328, 14, -1245138, 1507328, 14, -1310673, 1507328, 14, -1245137, 1507328, 14, -1310672, 1507328, 14, -1245136, 1507328, 14, -1310671, 1507328, 14, -1245135, 1507328, 14, -1310670, 1507328, 14, -1245134, 1507328, 14, -1310669, 1507328, 14, -1245133, 1507328, 14, -1310668, 1507328, 14, -1245132, 1507328, 14, -1310667, 1507328, 14, -1245131, 1507328, 14, -1310666, 1507328, 14, -1245130, 1507328, 14, -1310665, 1507328, 14, -1245129, 1507328, 14, -1310664, 1507328, 14, -1245128, 1507328, 14, -1310663, 1507328, 14, -1245127, 1507328, 14, -1310662, 1507328, 14, -1245126, 1507328, 14, -1310661, 1507328, 14, -1245125, 1507328, 14, -1310660, 1507328, 14, -1245124, 1507328, 14, -1310659, 1507328, 14, -1245123, 1507328, 14, -1310658, 1507328, 14, -1245122, 1507328, 14, -1310657, 1507328, 14, -1245121, 1507328, 14, -1310656, 1507328, 14, -1245120, 1507328, 14, -1310655, 1507328, 14, -1245119, 1507328, 14, -1310654, 1507328, 14, -1245118, 1507328, 14, -1310653, 1507328, 14, -1245117, 1507328, 14, -1310652, 1507328, 14, -1245116, 1507328, 14, -1310651, 1507328, 14, -1245115, 1507328, 14, -1310650, 1507328, 14, -1245114, 1507328, 14, -1310649, 1507328, 14, -1245113, 1507328, 14, -1310648, 1507328, 14, -1245112, 1507328, 14, -1376210, 1507328, 14, -1179602, 1507328, 14, -1376209, 1507328, 14, -1179601, 1507328, 14, -1376208, 1507328, 14, -1179600, 1507328, 14, -1376207, 1507328, 14, -1179599, 1507328, 14, -1376206, 1507328, 14, -1179598, 1507328, 14, -1376205, 1507328, 14, -1179597, 1507328, 14, -1376204, 1507328, 14, -1179596, 1507328, 14, -1376203, 1507328, 14, -1179595, 1507328, 14, -1376202, 1507328, 14, -1179594, 1507328, 14, -1376201, 1507328, 14, -1179593, 1507328, 14, -1376200, 1507328, 14, -1179592, 1507328, 14, -1376199, 1507328, 14, -1179591, 1507328, 14, -1376198, 1507328, 14, -1179590, 1507328, 14, -1376197, 1507328, 14, -1179589, 1507328, 14, -1376196, 1507328, 14, -1179588, 1507328, 14, -1376195, 1507328, 14, -1179587, 1507328, 14, -1376194, 1507328, 14, -1179586, 1507328, 14, -1376193, 1507328, 14, -1179585, 1507328, 14, -1376192, 1507328, 14, -1179584, 1507328, 14, -1376191, 1507328, 14, -1179583, 1507328, 14, -1376190, 1507328, 14, -1179582, 1507328, 14, -1376189, 1507328, 14, -1179581, 1507328, 14, -1376188, 1507328, 14, -1179580, 1507328, 14, -1376187, 1507328, 14, -1179579, 1507328, 14, -1376186, 1507328, 14, -1179578, 1507328, 14, -1376185, 1507328, 14, -1179577, 1507328, 14, -1376184, 1507328, 14, -1179576, 1507328, 14, -1376218, 1507328, 14, -1179610, 1507328, 14, -1376217, 1507328, 14, -1179609, 1507328, 14, -1376216, 1507328, 14, -1179608, 1507328, 14, -1376215, 1507328, 14, -1179607, 1507328, 14, -1376214, 1507328, 14, -1179606, 1507328, 14, -1376213, 1507328, 14, -1179605, 1507328, 14, -1376212, 1507328, 14, -1179604, 1507328, 14, -1376211, 1507328, 14, -1179603, 1507328, 14, -1114068, 1507328, 14, -1114067, 1507328, 14, -1114066, 1507328, 14, -1114065, 1507328, 14, -1114064, 1507328, 14, -1114063, 1507328, 14, -1114062, 1507328, 14, -1114061, 1507328, 14, -1114060, 1507328, 14, -1114059, 1507328, 14, -1114058, 1507328, 14, -1114057, 1507328, 14, -1114056, 1507328, 14, -1114055, 1507328, 14, -1114054, 1507328, 14, -1114053, 1507328, 14, -1114052, 1507328, 14, -1114051, 1507328, 14, -1114050, 1507328, 14, -1114049, 1507328, 14, -1114048, 1507328, 14, -1114047, 1507328, 14, -1114046, 1507328, 14, -1114045, 1507328, 14, -1114044, 1507328, 14, -1114043, 1507328, 14, -1114042, 1507328, 14, -1114041, 1507328, 14, -1114040, 1507328, 14, -1441740, 1572864, 15, -1441739, 1507328, 14, -1441738, 1507328, 14, -1441737, 1507328, 14, -1441736, 1507328, 14, -1441735, 1507328, 14, -1441734, 1507328, 14, -1441733, 1507328, 14, -1441732, 1507328, 14, -1441731, 1507328, 14, -1441730, 1507328, 14, -1441729, 1507328, 14, -1441728, 1507328, 14, -1441727, 1507328, 14, -1441726, 1507328, 14, -1441725, 1507328, 14, -1441724, 1507328, 14, -1441723, 1507328, 14, -1441722, 1507328, 14, -1441721, 1507328, 14, -1441720, 1507328, 14, -1114075, 1507328, 14, -1114074, 1507328, 14, -1114073, 1507328, 14, -1114072, 1507328, 14, -1114071, 1507328, 14, -1114070, 1507328, 14, -1114069, 1507328, 14, -1441755, 1507328, 14, -1441754, 1507328, 14, -1441753, 1507328, 14, -1441752, 1507328, 14, -1441751, 1507328, 14, -1441750, 1507328, 14, -1441749, 1507328, 14, -1441748, 1507328, 14, -1441747, 1507328, 14, -1441746, 1507328, 14, -1441745, 1507328, 14, -1441744, 1441792, 15, -1441743, 1507328, 15, -1441742, 1507328, 15, -1441741, 1507328, 15, -1048539, 1507328, 15, -1048538, 1507328, 15, -1048537, 1507328, 15, -1048536, 1507328, 15, -1048535, 1507328, 15, -1048534, 1507328, 15, -1048533, 1507328, 15, -1048532, 1507328, 15, -1048531, 1507328, 15, -1048530, 1507328, 15, -1048529, 1507328, 15, -1048528, 1507328, 15, -1048527, 1507328, 15, -1048526, 1507328, 15, -1048525, 1507328, 15, -1048524, 1507328, 15, -1048523, 1507328, 15, -1048522, 1507328, 15, -1048521, 1507328, 15, -1048520, 1507328, 15, -1048519, 1507328, 15, -1048518, 1507328, 15, -1048517, 1507328, 15, -1048516, 1507328, 15, -1048515, 1507328, 15, -1048514, 1507328, 15, -1048513, 1507328, 15, -1048512, 1507328, 15, -1048511, 1507328, 15, -1048510, 1507328, 15, -1048509, 1507328, 15, -1048508, 1507328, 15, -1507291, 1507328, 13, -1507290, 1507328, 13, -1507289, 1507328, 13, -1507288, 1507328, 13, -1507287, 1507328, 13, -1507286, 1507328, 13, -1507285, 1507328, 13, -1507284, 1507328, 13, -1507283, 1507328, 13, -1507282, 1507328, 13, -1507281, 1507328, 13, -1507280, 1441792, 14, -1507279, 1507328, 14, -1507278, 1507328, 14, -1507277, 1507328, 14, -1507276, 1572864, 14, -1507275, 1507328, 13, -1507274, 1507328, 13, -1507273, 1507328, 13, -1507272, 1507328, 13, -1507271, 1507328, 13, -1507270, 1507328, 13, -1507269, 1507328, 13, -1507268, 1507328, 13, -1507267, 1507328, 13, -1507266, 1507328, 13, -1507265, 1507328, 13, -1507264, 1507328, 13, -1507263, 1507328, 13, -1507262, 1507328, 13, -1507261, 1507328, 13, -1507260, 1507328, 13, -1507259, 1507328, 13, -1507258, 1507328, 13, -1048507, 1507328, 15, -1048506, 1507328, 15, -1048505, 1507328, 15, -1048504, 1507328, 15, -1507257, 1507328, 13, -1507256, 1507328, 13, -1507252, 1507328, 13, -1441716, 1507328, 14, -1376180, 1507328, 14, -1310644, 1507328, 14, -1245108, 1507328, 14, -1179572, 1507328, 14, -1114036, 1507328, 14, -1048500, 1507328, 14, -982964, 1441792, 14, -917428, 1441792, 14, -851892, 1441792, 14, -786356, 1441792, 14, -720820, 1441792, 14, -655284, 1441792, 14, -589748, 1441792, 14, -524212, 1441792, 15, -1507251, 1507328, 13, -1441715, 1507328, 14, -1376179, 1507328, 14, -1310643, 1507328, 14, -1245107, 1507328, 14, -1179571, 1507328, 14, -1114035, 1507328, 14, -1048499, 1507328, 14, -982963, 1507328, 14, -917427, 1507328, 14, -851891, 1507328, 14, -786355, 1507328, 14, -720819, 1507328, 14, -655283, 1507328, 14, -589747, 1507328, 14, -524211, 1507328, 15, -1507250, 1507328, 13, -1441714, 1507328, 14, -1376178, 1507328, 14, -1310642, 1507328, 14, -1245106, 1507328, 14, -1179570, 1507328, 14, -1114034, 1507328, 14, -1048498, 1507328, 14, -982962, 1507328, 14, -917426, 1507328, 14, -851890, 1507328, 14, -786354, 1507328, 14, -720818, 1507328, 14, -655282, 1507328, 14, -589746, 1507328, 14, -524210, 1507328, 15, -1507249, 1507328, 13, -1441713, 1507328, 14, -1376177, 1507328, 14, -1310641, 1507328, 14, -1245105, 1507328, 14, -1179569, 1507328, 14, -1114033, 1507328, 14, -1048497, 1507328, 14, -982961, 1507328, 14, -917425, 1507328, 14, -851889, 1507328, 14, -786353, 1507328, 14, -720817, 1507328, 14, -655281, 1507328, 14, -589745, 1507328, 14, -524209, 1507328, 15, -1507248, 1507328, 13, -1441712, 1507328, 14, -1376176, 1507328, 14, -1310640, 1507328, 14, -1245104, 1507328, 14, -1179568, 1507328, 14, -1114032, 1507328, 14, -1048496, 1507328, 14, -982960, 1507328, 14, -917424, 1507328, 14, -851888, 1507328, 14, -786352, 1507328, 14, -720816, 1507328, 14, -655280, 1507328, 14, -589744, 1507328, 14, -524208, 1507328, 15, -1507247, 1507328, 13, -1441711, 1507328, 14, -1376175, 1507328, 14, -1310639, 1507328, 14, -1245103, 1507328, 14, -1179567, 1507328, 14, -1114031, 1507328, 14, -1048495, 1507328, 14, -982959, 1507328, 14, -917423, 1507328, 14, -851887, 1507328, 14, -786351, 1507328, 14, -720815, 1507328, 14, -655279, 1507328, 14, -589743, 1507328, 14, -524207, 1507328, 15, -1507246, 1507328, 13, -1441710, 1507328, 14, -1376174, 1507328, 14, -1310638, 1507328, 14, -1245102, 1507328, 14, -1179566, 1507328, 14, -1114030, 1507328, 14, -1048494, 1507328, 14, -982958, 1507328, 14, -917422, 1507328, 14, -851886, 1507328, 14, -786350, 1507328, 14, -720814, 1507328, 14, -655278, 1507328, 14, -589742, 1507328, 14, -524206, 1507328, 15, -1507245, 1507328, 13, -1441709, 1507328, 14, -1376173, 1507328, 14, -1310637, 1507328, 14, -1245101, 1507328, 14, -1179565, 1507328, 14, -1114029, 1507328, 14, -1048493, 1507328, 14, -982957, 1507328, 14, -917421, 1507328, 14, -851885, 1507328, 14, -786349, 1507328, 14, -720813, 1507328, 14, -655277, 1507328, 14, -589741, 1507328, 14, -524205, 1507328, 15, -1507244, 1507328, 13, -1441708, 1507328, 14, -1376172, 1507328, 14, -1310636, 1507328, 14, -1245100, 1507328, 14, -1179564, 1507328, 14, -1114028, 1507328, 14, -1048492, 1507328, 14, -982956, 1507328, 14, -917420, 1507328, 14, -851884, 1507328, 14, -786348, 1507328, 14, -720812, 1507328, 14, -655276, 1507328, 14, -589740, 1507328, 14, -524204, 1507328, 15, -1507243, 1572864, 13, -1441707, 1572864, 14, -1376171, 1572864, 14, -1310635, 1572864, 14, -1245099, 1572864, 14, -1179563, 1572864, 14, -1114027, 1572864, 14, -1048491, 1572864, 14, -982955, 1572864, 14, -917419, 1572864, 14, -851883, 1572864, 14, -786347, 1572864, 14, -720811, 1572864, 14, -655275, 1572864, 14, -589739, 1572864, 14, -524203, 1572864, 15, -1048503, 1507328, 15, -1048502, 1507328, 15, -1048501, 1507328, 15, -1114039, 1507328, 14, -1114038, 1507328, 14, -1114037, 1507328, 14, -1179573, 1507328, 14, -1179574, 1507328, 14, -1179575, 1507328, 14, -1245110, 1507328, 14, -1310646, 1507328, 14, -1310647, 1507328, 14, -1376183, 1507328, 14, -1376182, 1507328, 14, -1441718, 1507328, 14, -1441719, 1507328, 14, -1507254, 1507328, 13, -1507255, 1507328, 13, -1507253, 1507328, 13, -1441717, 1507328, 14, -1376181, 1507328, 14, -1245109, 1507328, 14, -1310645, 1507328, 14, -1245111, 1507328, 14, -1769429, 1441792, 13, -1703893, 1441792, 14, -1638357, 1441792, 14, -1769428, 1507328, 13, -1703892, 1507328, 14, -1638356, 1507328, 14, -1769427, 1507328, 13, -1703891, 1507328, 14, -1638355, 1507328, 14, -1769426, 1572864, 13, -1703890, 1572864, 14, -1638354, 1572864, 14, -1572821, 1441792, 15, -1572820, 1507328, 15, -1572819, 1507328, 15, -1572818, 1572864, 15, -1638351, 1507328, 13, -1572815, 1507328, 14, -1638350, 1507328, 13, -1572814, 1507328, 14, -1638349, 1507328, 13, -1572813, 1507328, 14, -1638352, 1441792, 13, -1572816, 1441792, 14, -1572812, 1572864, 14, -1638348, 1572864, 13)
 
-[node name="spikes" type="Node" parent="." unique_id=744801835]
+[node name="spikes" type="Node" parent="."]
 
-[node name="Spike5" parent="spikes" unique_id=1127672060 instance=ExtResource("13_opyvl")]
+[node name="Spike5" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-77, -70)
 
-[node name="Spike7" parent="spikes" unique_id=886269340 instance=ExtResource("13_opyvl")]
+[node name="Spike7" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(723, -421)
 
-[node name="Spike33" parent="spikes" unique_id=940831936 instance=ExtResource("13_opyvl")]
+[node name="Spike33" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(724, -343)
 
-[node name="Spike34" parent="spikes" unique_id=868448675 instance=ExtResource("13_opyvl")]
+[node name="Spike34" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(745, -343)
 
-[node name="Spike35" parent="spikes" unique_id=1328387961 instance=ExtResource("13_opyvl")]
+[node name="Spike35" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(765, -343)
 
-[node name="Spike36" parent="spikes" unique_id=2112125756 instance=ExtResource("13_opyvl")]
+[node name="Spike36" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(785, -343)
 
-[node name="Spike37" parent="spikes" unique_id=542833731 instance=ExtResource("13_opyvl")]
+[node name="Spike37" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(806, -343)
 
-[node name="Spike38" parent="spikes" unique_id=1309657231 instance=ExtResource("13_opyvl")]
+[node name="Spike38" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(827, -343)
 
-[node name="Spike39" parent="spikes" unique_id=1913623692 instance=ExtResource("13_opyvl")]
+[node name="Spike39" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(848, -343)
 
-[node name="Spike40" parent="spikes" unique_id=1128323436 instance=ExtResource("13_opyvl")]
+[node name="Spike40" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(869, -343)
 
-[node name="Spike14" parent="spikes" unique_id=2034322869 instance=ExtResource("13_opyvl")]
+[node name="Spike14" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(804, -456)
 
-[node name="Spike30" parent="spikes" unique_id=1215944415 instance=ExtResource("13_opyvl")]
+[node name="Spike30" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(825, -456)
 
-[node name="Spike42" parent="spikes" unique_id=776521561 instance=ExtResource("13_opyvl")]
+[node name="Spike42" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(984.99994, -343.00003)
 
-[node name="Spike45" parent="spikes" unique_id=1487262409 instance=ExtResource("13_opyvl")]
+[node name="Spike45" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(920, -535)
 rotation = -1.5707964
 
-[node name="Spike53" parent="spikes" unique_id=998079312 instance=ExtResource("13_opyvl")]
+[node name="Spike53" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(920, -512)
 rotation = -1.5707964
 
-[node name="Spike52" parent="spikes" unique_id=913475329 instance=ExtResource("13_opyvl")]
+[node name="Spike52" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(920, -490)
 rotation = -1.5707964
 
-[node name="Spike51" parent="spikes" unique_id=789907544 instance=ExtResource("13_opyvl")]
+[node name="Spike51" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(920, -467)
 rotation = -1.5707964
 
-[node name="Spike50" parent="spikes" unique_id=907456581 instance=ExtResource("13_opyvl")]
+[node name="Spike50" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(920, -401)
 rotation = -1.5707964
 
-[node name="Spike55" parent="spikes" unique_id=1473608761 instance=ExtResource("13_opyvl")]
+[node name="Spike55" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(920, -423)
 rotation = -1.5707964
 
-[node name="Spike54" parent="spikes" unique_id=981288109 instance=ExtResource("13_opyvl")]
+[node name="Spike54" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(920, -445)
 rotation = -1.5707964
 
-[node name="Spike46" parent="spikes" unique_id=320449702 instance=ExtResource("13_opyvl")]
+[node name="Spike46" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(1064, -535)
 rotation = 1.5707964
 
-[node name="Spike47" parent="spikes" unique_id=1591086346 instance=ExtResource("13_opyvl")]
+[node name="Spike47" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(944, -567)
 
-[node name="Spike48" parent="spikes" unique_id=1585807980 instance=ExtResource("13_opyvl")]
+[node name="Spike48" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(968, -567)
 
-[node name="Spike49" parent="spikes" unique_id=1090577116 instance=ExtResource("13_opyvl")]
+[node name="Spike49" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(992, -567)
 
-[node name="Spike62" parent="spikes" unique_id=196877135 instance=ExtResource("13_opyvl")]
+[node name="Spike62" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(1017, -567)
 
-[node name="Spike63" parent="spikes" unique_id=2091600024 instance=ExtResource("13_opyvl")]
+[node name="Spike63" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(1041, -569)
 
-[node name="Spike56" parent="spikes" unique_id=1141702342 instance=ExtResource("13_opyvl")]
+[node name="Spike56" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(1064, -512)
 rotation = 1.5707964
 
-[node name="Spike57" parent="spikes" unique_id=2007860488 instance=ExtResource("13_opyvl")]
+[node name="Spike57" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(1064, -490)
 rotation = 1.5707964
 
-[node name="Spike58" parent="spikes" unique_id=548809196 instance=ExtResource("13_opyvl")]
+[node name="Spike58" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(1064, -467)
 rotation = 1.5707964
 
-[node name="Spike59" parent="spikes" unique_id=752823200 instance=ExtResource("13_opyvl")]
+[node name="Spike59" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(1064, -401)
 rotation = 1.5707964
 
-[node name="Spike60" parent="spikes" unique_id=2031925251 instance=ExtResource("13_opyvl")]
+[node name="Spike60" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(1064, -423)
 rotation = 1.5707964
 
-[node name="Spike61" parent="spikes" unique_id=478633291 instance=ExtResource("13_opyvl")]
+[node name="Spike61" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(1064, -445)
 rotation = 1.5707964
 
-[node name="Spike44" parent="spikes" unique_id=453162553 instance=ExtResource("13_opyvl")]
+[node name="Spike44" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(963.99994, -343.00003)
 
-[node name="Spike43" parent="spikes" unique_id=1423596210 instance=ExtResource("13_opyvl")]
+[node name="Spike43" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(943.99994, -343.00003)
 
-[node name="Spike32" parent="spikes" unique_id=133749629 instance=ExtResource("13_opyvl")]
+[node name="Spike32" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(816, -504)
 rotation = -3.1415927
 
-[node name="Spike6" parent="spikes" unique_id=116911125 instance=ExtResource("13_opyvl")]
+[node name="Spike6" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-55, -70)
 
-[node name="Spike27" parent="spikes" unique_id=1589016910 instance=ExtResource("13_opyvl")]
+[node name="Spike27" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(61, -94)
 rotation = -1.5707964
 
-[node name="Spike28" parent="spikes" unique_id=930508591 instance=ExtResource("13_opyvl")]
+[node name="Spike28" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(61, -52)
 rotation = -1.5707964
 
-[node name="Spike29" parent="spikes" unique_id=1883019618 instance=ExtResource("13_opyvl")]
+[node name="Spike29" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(61, -73)
 rotation = -1.5707964
 
-[node name="Spike8" parent="spikes" unique_id=193694417 instance=ExtResource("13_opyvl")]
+[node name="Spike8" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-149, -118)
 rotation = 3.1415927
 
-[node name="Spike9" parent="spikes" unique_id=1860514075 instance=ExtResource("13_opyvl")]
+[node name="Spike9" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-127, -118)
 rotation = 3.1415927
 
-[node name="Spike10" parent="spikes" unique_id=2021162487 instance=ExtResource("13_opyvl")]
+[node name="Spike10" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-106, -118)
 rotation = 3.1415927
 
-[node name="Spike11" parent="spikes" unique_id=1272147493 instance=ExtResource("13_opyvl")]
+[node name="Spike11" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-84, -118)
 rotation = 3.1415927
 
-[node name="Spike12" parent="spikes" unique_id=569100832 instance=ExtResource("13_opyvl")]
+[node name="Spike12" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-62, -118)
 rotation = 3.1415927
 
-[node name="Spike13" parent="spikes" unique_id=78020356 instance=ExtResource("13_opyvl")]
+[node name="Spike13" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-41, -118)
 rotation = 3.1415927
 
-[node name="Spike15" parent="spikes" unique_id=966523676 instance=ExtResource("13_opyvl")]
+[node name="Spike15" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-149, -118)
 rotation = 3.1415927
 
-[node name="Spike16" parent="spikes" unique_id=414984194 instance=ExtResource("13_opyvl")]
+[node name="Spike16" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-127, -118)
 rotation = 3.1415927
 
-[node name="Spike17" parent="spikes" unique_id=1770131325 instance=ExtResource("13_opyvl")]
+[node name="Spike17" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-106, -118)
 rotation = 3.1415927
 
-[node name="Spike18" parent="spikes" unique_id=873874046 instance=ExtResource("13_opyvl")]
+[node name="Spike18" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-84, -118)
 rotation = 3.1415927
 
-[node name="Spike19" parent="spikes" unique_id=2034240076 instance=ExtResource("13_opyvl")]
+[node name="Spike19" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-62, -118)
 rotation = 3.1415927
 
-[node name="Spike20" parent="spikes" unique_id=1207053743 instance=ExtResource("13_opyvl")]
+[node name="Spike20" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-41, -118)
 rotation = 3.1415927
 
-[node name="Spike21" parent="spikes" unique_id=29419007 instance=ExtResource("13_opyvl")]
+[node name="Spike21" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-149, -185)
 
-[node name="Spike22" parent="spikes" unique_id=820741507 instance=ExtResource("13_opyvl")]
+[node name="Spike22" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-127, -185)
 
-[node name="Spike23" parent="spikes" unique_id=728847572 instance=ExtResource("13_opyvl")]
+[node name="Spike23" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-106, -185)
 
-[node name="Spike24" parent="spikes" unique_id=1645812467 instance=ExtResource("13_opyvl")]
+[node name="Spike24" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-84, -185)
 
-[node name="Spike25" parent="spikes" unique_id=1219561631 instance=ExtResource("13_opyvl")]
+[node name="Spike25" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-62, -185)
 
-[node name="Spike26" parent="spikes" unique_id=426640735 instance=ExtResource("13_opyvl")]
+[node name="Spike26" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(-41, -185)
 
-[node name="Spike2" parent="spikes" unique_id=302195130 instance=ExtResource("12_hmqis")]
+[node name="Spike2" parent="spikes" instance=ExtResource("12_hmqis")]
 z_index = 1
 position = Vector2(22, -136)
 rotation = 1.5707964
 
-[node name="Spike3" parent="spikes" unique_id=1333827803 instance=ExtResource("12_hmqis")]
+[node name="Spike3" parent="spikes" instance=ExtResource("12_hmqis")]
 z_index = 1
 position = Vector2(10, -123)
 rotation = 3.1415927
 
-[node name="Spike" parent="spikes" unique_id=1246469202 instance=ExtResource("13_opyvl")]
+[node name="Spike" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(511, -345)
 
-[node name="Spike31" parent="spikes" unique_id=1513844320 instance=ExtResource("13_opyvl")]
+[node name="Spike31" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(531, -345)
 
-[node name="Spike41" parent="spikes" unique_id=1885808442 instance=ExtResource("13_opyvl")]
+[node name="Spike41" parent="spikes" instance=ExtResource("13_opyvl")]
 position = Vector2(495, -295)
 
-[node name="Checkpoints" type="Node" parent="." unique_id=1218206054]
+[node name="Checkpoints" type="Node" parent="."]
 
-[node name="Spring2" parent="." unique_id=676392880 instance=ExtResource("14_opyvl")]
+[node name="Spring2" parent="." instance=ExtResource("14_opyvl")]
 position = Vector2(132, -125)
 
-[node name="Spring2" parent="Spring2" unique_id=1610327913 instance=ExtResource("14_opyvl")]
+[node name="Spring2" parent="Spring2" instance=ExtResource("14_opyvl")]
 position = Vector2(556, -224)
 
-[node name="GrassPlatform" parent="." unique_id=938554635 instance=ExtResource("15_ifurh")]
+[node name="GrassPlatform" parent="." instance=ExtResource("15_ifurh")]
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="GrassPlatform" unique_id=269311474]
-autoplay = &"Move"
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="GrassPlatform"]
+autoplay = "Move"
 
-[node name="Backrogound" type="Node" parent="." unique_id=1590154566]
+[node name="Backrogound" type="Node" parent="."]
 
-[node name="Plx1" type="Sprite2D" parent="Backrogound" unique_id=76488505]
+[node name="Plx1" type="Sprite2D" parent="Backrogound"]
 z_index = -7
 position = Vector2(316, -165)
 scale = Vector2(9.052, 6.654)
 texture = ExtResource("7_u2ewt")
 metadata/_edit_lock_ = true
 
-[node name="Plx2" type="Sprite2D" parent="Backrogound" unique_id=165434182]
+[node name="Plx2" type="Sprite2D" parent="Backrogound"]
 z_index = -6
 position = Vector2(176.6655, -53.500042)
 scale = Vector2(9.052, 6.654)
 texture = ExtResource("8_xodea")
 metadata/_edit_lock_ = true
 
-[node name="Plx3" type="Sprite2D" parent="Backrogound" unique_id=1806933614]
+[node name="Plx3" type="Sprite2D" parent="Backrogound"]
 z_index = -5
 position = Vector2(191, -53)
 scale = Vector2(9.052, 6.654)
 texture = ExtResource("10_nobmn")
 metadata/_edit_lock_ = true
 
-[node name="Plx4" type="Sprite2D" parent="Backrogound" unique_id=470021112]
+[node name="Plx4" type="Sprite2D" parent="Backrogound"]
 z_index = -3
 position = Vector2(162.22801, -59.500015)
 scale = Vector2(9.052, 6.654)
 texture = ExtResource("10_doca4")
 metadata/_edit_lock_ = true
 
-[node name="Plx5" type="Sprite2D" parent="Backrogound" unique_id=39421456]
+[node name="Plx5" type="Sprite2D" parent="Backrogound"]
 z_index = -2
 position = Vector2(178.66553, -40.00003)
 scale = Vector2(9.052, 6.654)
 texture = ExtResource("9_nobmn")
 metadata/_edit_lock_ = true
 
-[node name="GlassBottle2" type="Area2D" parent="." unique_id=1762575707]
+[node name="GlassBottle2" type="Area2D" parent="."]
 position = Vector2(-18, -176.83)
 rotation = 0.76096356
 scale = Vector2(0.355, 0.355)
@@ -1368,14 +1368,14 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("48_1w71i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GlassBottle2" unique_id=1397204731]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GlassBottle2"]
 rotation = 1.2688544
 scale = Vector2(5.04, 5.04)
 shape = SubResource("RectangleShape2D_3unfj")
 
-[node name="FoodUI" type="CanvasLayer" parent="GlassBottle2" unique_id=2128970471]
+[node name="FoodUI" type="CanvasLayer" parent="GlassBottle2"]
 
-[node name="Panel" type="Panel" parent="GlassBottle2/FoodUI" unique_id=650478735]
+[node name="Panel" type="Panel" parent="GlassBottle2/FoodUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1390,12 +1390,12 @@ grow_vertical = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_hfe4e")
 
-[node name="potato" type="Sprite2D" parent="GlassBottle2/FoodUI/Panel" unique_id=2092222049]
+[node name="potato" type="Sprite2D" parent="GlassBottle2/FoodUI/Panel"]
 position = Vector2(260.46594, 203.1579)
 scale = Vector2(1.606, 1.606)
 texture = ExtResource("52_k1gm1")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="GlassBottle2/FoodUI" unique_id=1801893271]
+[node name="RichTextLabel" type="RichTextLabel" parent="GlassBottle2/FoodUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1415,22 +1415,22 @@ text = "		You have obtained a
 
 	Press B to open backpack"
 
-[node name="bottleofwattta" type="Sprite2D" parent="GlassBottle2" unique_id=1249101189]
+[node name="bottleofwattta" type="Sprite2D" parent="GlassBottle2"]
 rotation = 1.282817
 texture = ExtResource("52_k1gm1")
 script = ExtResource("53_1ovni")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=185765211]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ifurh")
 
-[node name="Sun" type="Sprite2D" parent="." unique_id=516291257]
+[node name="Sun" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(-211.73438, -1.3617187)
 scale = Vector2(3.2333987, 3.176904)
 texture = ExtResource("16_8k04f")
 metadata/_edit_lock_ = true
 
-[node name="TileMap3" type="TileMap" parent="." unique_id=622858353]
+[node name="TileMap3" type="TileMap" parent="."]
 position = Vector2(-130.874, 1.9979999)
 scale = Vector2(1.028, 1.01)
 tile_set = SubResource("TileSet_w4ffg")
@@ -1439,11 +1439,11 @@ layer_0/tile_data = PackedInt32Array(-196598, 524288, 3, -196607, 131072, 4, 655
 layer_1/name = "Layer1"
 layer_1/tile_data = PackedInt32Array(-2097099, 131072, 4, -2031563, 131072, 5, -1966027, 131072, 6, -2097098, 196608, 4, -2031562, 196608, 5, -1966026, 196608, 6, -1900490, 196608, 7, -1834954, 196608, 8, -2097097, 262144, 4, -2031561, 262144, 5, -1966025, 262144, 6, -1638341, 262144, 10, -1638342, 262144, 10, -1638343, 262144, 10, -1638344, 262144, 10, -1638345, 262144, 10, -1572809, 262144, 10, -1572808, 262144, 10, -1572807, 262144, 10, -1572806, 262144, 10, -1572805, 262144, 10, -1507269, 262144, 10, -1507270, 262144, 10, -1507271, 262144, 10, -1507272, 262144, 10, -1507273, 262144, 10, -1441737, 262144, 10, -1441736, 262144, 10, -1441735, 262144, 10, -1441734, 262144, 10, -1441733, 262144, 10, -1376197, 262144, 10, -1376198, 262144, 10, -1376199, 262144, 10, -1376200, 262144, 10, -1376201, 262144, 10, -1310665, 262144, 10, -1310664, 262144, 10, -1310663, 262144, 10, -1310662, 262144, 10, -1310661, 262144, 10, -1245129, 262144, 10, -1245128, 262144, 10, -1245127, 262144, 10, -1245126, 262144, 10, -1245125, 262144, 10, -1179593, 262144, 805306377, -1179592, 262144, 805306377, -1179591, 262144, 805306377, -1179590, 262144, 805306377, -1179589, 262144, 805306377)
 
-[node name="Music" parent="." unique_id=509505915 instance=ExtResource("18_tdag6")]
+[node name="Music" parent="." instance=ExtResource("18_tdag6")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1156319450]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="BattleUI" type="ColorRect" parent="CanvasLayer" unique_id=1567929458]
+[node name="BattleUI" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1458,7 +1458,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("19_w4ffg")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/BattleUI" unique_id=852256523]
+[node name="Panel" type="Panel" parent="CanvasLayer/BattleUI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1473,7 +1473,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tdag6")
 
-[node name="gold" type="Panel" parent="CanvasLayer/BattleUI" unique_id=587695026]
+[node name="gold" type="Panel" parent="CanvasLayer/BattleUI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1488,7 +1488,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sejlb")
 
-[node name="Bronze2" type="Panel" parent="CanvasLayer/BattleUI" unique_id=777695842]
+[node name="Bronze2" type="Panel" parent="CanvasLayer/BattleUI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1503,7 +1503,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vfdfo")
 
-[node name="Silver" type="Panel" parent="CanvasLayer/BattleUI" unique_id=1700019921]
+[node name="Silver" type="Panel" parent="CanvasLayer/BattleUI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1518,7 +1518,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fxsqa")
 
-[node name="Bronze" type="Panel" parent="CanvasLayer/BattleUI" unique_id=376069115]
+[node name="Bronze" type="Panel" parent="CanvasLayer/BattleUI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1533,7 +1533,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vfdfo")
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer/BattleUI" unique_id=1665299502]
+[node name="RichTextLabel5" type="RichTextLabel" parent="CanvasLayer/BattleUI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1550,7 +1550,7 @@ theme_override_fonts/normal_font = ExtResource("20_hwhuf")
 theme_override_font_sizes/normal_font_size = 47
 text = "25%"
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/BattleUI" unique_id=1217655768]
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/BattleUI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1567,7 +1567,7 @@ theme_override_fonts/normal_font = ExtResource("20_hwhuf")
 theme_override_font_sizes/normal_font_size = 47
 text = "100%"
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/BattleUI" unique_id=2006678532]
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/BattleUI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1584,7 +1584,7 @@ theme_override_fonts/normal_font = ExtResource("20_hwhuf")
 theme_override_font_sizes/normal_font_size = 47
 text = "50%"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/BattleUI" unique_id=1809427181]
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/BattleUI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1601,7 +1601,7 @@ theme_override_fonts/normal_font = ExtResource("20_hwhuf")
 theme_override_font_sizes/normal_font_size = 47
 text = "50%"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/BattleUI" unique_id=1627914807]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/BattleUI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1618,7 +1618,7 @@ theme_override_fonts/normal_font = ExtResource("20_hwhuf")
 theme_override_font_sizes/normal_font_size = 47
 text = "25%"
 
-[node name="Silver2" type="Panel" parent="CanvasLayer/BattleUI" unique_id=364822544]
+[node name="Silver2" type="Panel" parent="CanvasLayer/BattleUI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1633,7 +1633,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fxsqa")
 
-[node name="Bar" type="Panel" parent="CanvasLayer/BattleUI" unique_id=1613488401]
+[node name="Bar" type="Panel" parent="CanvasLayer/BattleUI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1648,17 +1648,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_w4ffg")
 
-[node name="Sword" type="Sprite2D" parent="CanvasLayer/BattleUI" unique_id=1472680076]
+[node name="Sword" type="Sprite2D" parent="CanvasLayer/BattleUI"]
 position = Vector2(119.90851, 97.8125)
 scale = Vector2(0.27800012, 0.27800012)
 texture = ExtResource("21_sejlb")
 
-[node name="Shield" type="Sprite2D" parent="CanvasLayer/BattleUI" unique_id=897449910]
+[node name="Shield" type="Sprite2D" parent="CanvasLayer/BattleUI"]
 position = Vector2(115.9085, 102.8125)
 scale = Vector2(0.304, 0.304)
 texture = ExtResource("22_fxsqa")
 
-[node name="PlayerHealthLabel" type="RichTextLabel" parent="CanvasLayer/BattleUI" unique_id=425836732]
+[node name="PlayerHealthLabel" type="RichTextLabel" parent="CanvasLayer/BattleUI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1675,7 +1675,7 @@ theme_override_fonts/normal_font = ExtResource("20_hwhuf")
 theme_override_font_sizes/normal_font_size = 37
 text = "Player:"
 
-[node name="EnemyHealthLabel" type="RichTextLabel" parent="CanvasLayer/BattleUI" unique_id=1248649462]
+[node name="EnemyHealthLabel" type="RichTextLabel" parent="CanvasLayer/BattleUI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1689,7 +1689,7 @@ theme_override_fonts/normal_font = ExtResource("20_hwhuf")
 theme_override_font_sizes/normal_font_size = 37
 text = "Enemy:"
 
-[node name="PlayerHealthLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1159363676]
+[node name="PlayerHealthLabel" type="RichTextLabel" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1705,36 +1705,36 @@ theme_override_fonts/normal_font = ExtResource("20_hwhuf")
 theme_override_font_sizes/normal_font_size = 37
 text = "Player:"
 
-[node name="enemyHitbox" type="Area2D" parent="." unique_id=14568909]
+[node name="enemyHitbox" type="Area2D" parent="."]
 position = Vector2(-113, 12)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("22_vfdfo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyHitbox" unique_id=1339018309]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyHitbox"]
 position = Vector2(726, -601)
 shape = SubResource("RectangleShape2D_sejlb")
 metadata/_edit_lock_ = true
 
-[node name="chest" type="Area2D" parent="." unique_id=410074182]
+[node name="chest" type="Area2D" parent="."]
 position = Vector2(-28.999985, -67.00001)
 scale = Vector2(0.779, 0.779)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("24_86pyb")
 
-[node name="chest" type="AnimatedSprite2D" parent="chest" unique_id=1518074665]
+[node name="chest" type="AnimatedSprite2D" parent="chest"]
 sprite_frames = SubResource("SpriteFrames_4ui5i")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="chest" unique_id=1453881757]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chest"]
 position = Vector2(0, 0.84210205)
 shape = SubResource("RectangleShape2D_86pyb")
 
-[node name="ChestUI" type="CanvasLayer" parent="chest" unique_id=975287410]
+[node name="ChestUI" type="CanvasLayer" parent="chest"]
 visible = false
 
-[node name="Panel" type="Panel" parent="chest/ChestUI" unique_id=1540965077]
+[node name="Panel" type="Panel" parent="chest/ChestUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1749,12 +1749,12 @@ grow_vertical = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_hfe4e")
 
-[node name="Rustsword" type="Sprite2D" parent="chest/ChestUI/Panel" unique_id=1318632222]
+[node name="Rustsword" type="Sprite2D" parent="chest/ChestUI/Panel"]
 position = Vector2(260.46594, 203.1579)
 scale = Vector2(0.5859375, 0.5859375)
 texture = ExtResource("26_a7fwm")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="chest/ChestUI" unique_id=1215870868]
+[node name="RichTextLabel" type="RichTextLabel" parent="chest/ChestUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1774,31 +1774,31 @@ text = "		You have obtained the
 
 	Press B to open backpack"
 
-[node name="Rustsword" type="Sprite2D" parent="chest" unique_id=1606583360]
+[node name="Rustsword" type="Sprite2D" parent="chest"]
 position = Vector2(-1000, 273.427)
 scale = Vector2(0.49141523, 0.49141523)
 texture = ExtResource("26_qi4n4")
 script = ExtResource("27_4ui5i")
 
-[node name="chest2" type="Area2D" parent="." unique_id=1330756100]
+[node name="chest2" type="Area2D" parent="."]
 position = Vector2(871, -453.00003)
 scale = Vector2(0.779, 0.779)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("24_86pyb")
 
-[node name="chest" type="AnimatedSprite2D" parent="chest2" unique_id=1801138974]
+[node name="chest" type="AnimatedSprite2D" parent="chest2"]
 sprite_frames = SubResource("SpriteFrames_4ui5i")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="chest2" unique_id=854781629]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chest2"]
 position = Vector2(0, 0.84210205)
 shape = SubResource("RectangleShape2D_86pyb")
 
-[node name="ChestUI" type="CanvasLayer" parent="chest2" unique_id=119753489]
+[node name="ChestUI" type="CanvasLayer" parent="chest2"]
 visible = false
 
-[node name="Panel" type="Panel" parent="chest2/ChestUI" unique_id=1118304485]
+[node name="Panel" type="Panel" parent="chest2/ChestUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1813,12 +1813,12 @@ grow_vertical = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_hfe4e")
 
-[node name="Steel_sword" type="Sprite2D" parent="chest2/ChestUI/Panel" unique_id=1085126471]
+[node name="Steel_sword" type="Sprite2D" parent="chest2/ChestUI/Panel"]
 position = Vector2(251.17981, 196.63904)
 scale = Vector2(0.13730511, 0.13730511)
 texture = ExtResource("28_8ysek")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="chest2/ChestUI" unique_id=1026705300]
+[node name="RichTextLabel" type="RichTextLabel" parent="chest2/ChestUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1838,17 +1838,17 @@ text = "		You have obtained the
 
 	Press B to open backpack"
 
-[node name="Steelsword" type="Sprite2D" parent="chest2" unique_id=1081791854]
+[node name="Steelsword" type="Sprite2D" parent="chest2"]
 position = Vector2(-857.00275, -258.023)
 rotation = 0.72082096
 scale = Vector2(0.16543691, 0.16543691)
 texture = ExtResource("28_8ysek")
 script = ExtResource("31_cdiwd")
 
-[node name="Backpack" type="CanvasLayer" parent="." unique_id=494208801]
+[node name="Backpack" type="CanvasLayer" parent="."]
 script = ExtResource("27_vm3th")
 
-[node name="Panel" type="Panel" parent="Backpack" unique_id=1764165521]
+[node name="Panel" type="Panel" parent="Backpack"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1863,22 +1863,22 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jp7q6")
 metadata/_edit_use_anchors_ = true
 
-[node name="BackpackSword" type="Sprite2D" parent="Backpack" unique_id=406772496]
+[node name="BackpackSword" type="Sprite2D" parent="Backpack"]
 position = Vector2(232, 145)
 scale = Vector2(0.317, 0.29099998)
 texture = ExtResource("28_c206h")
 
-[node name="InventoryFood" type="Sprite2D" parent="Backpack" unique_id=254967540]
+[node name="InventoryFood" type="Sprite2D" parent="Backpack"]
 position = Vector2(610, 126)
 scale = Vector2(0.25862068, 0.25862068)
 texture = ExtResource("29_rlgn4")
 
-[node name="InventoryTrash" type="Sprite2D" parent="Backpack" unique_id=251101608]
+[node name="InventoryTrash" type="Sprite2D" parent="Backpack"]
 position = Vector2(941.00006, 128.00002)
 scale = Vector2(0.288, 0.288)
 texture = ExtResource("30_r1w80")
 
-[node name="selector" type="Panel" parent="Backpack" unique_id=2034944695]
+[node name="selector" type="Panel" parent="Backpack"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1893,7 +1893,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4ui5i")
 metadata/_edit_use_anchors_ = true
 
-[node name="separator" type="ColorRect" parent="Backpack" unique_id=1733600957]
+[node name="separator" type="ColorRect" parent="Backpack"]
 offset_left = 789.0
 offset_top = 66.0
 offset_right = 803.0
@@ -1901,7 +1901,7 @@ offset_bottom = 585.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="seporator" type="ColorRect" parent="Backpack" unique_id=1942412278]
+[node name="seporator" type="ColorRect" parent="Backpack"]
 offset_left = 415.0
 offset_top = 64.0
 offset_right = 429.0
@@ -1909,7 +1909,7 @@ offset_bottom = 583.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="TrashSlots" type="Control" parent="Backpack" unique_id=1632447113]
+[node name="TrashSlots" type="Control" parent="Backpack"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -1917,7 +1917,7 @@ offset_bottom = 40.0
 script = ExtResource("31_jp7q6")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel26" type="Panel" parent="Backpack/TrashSlots" unique_id=1057784712]
+[node name="Panel26" type="Panel" parent="Backpack/TrashSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1933,7 +1933,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("37_dtq81")
 
-[node name="Panel27" type="Panel" parent="Backpack/TrashSlots" unique_id=1405925689]
+[node name="Panel27" type="Panel" parent="Backpack/TrashSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1949,7 +1949,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("37_dtq81")
 
-[node name="Panel28" type="Panel" parent="Backpack/TrashSlots" unique_id=1223380130]
+[node name="Panel28" type="Panel" parent="Backpack/TrashSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1965,7 +1965,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("37_dtq81")
 
-[node name="Panel29" type="Panel" parent="Backpack/TrashSlots" unique_id=624422213]
+[node name="Panel29" type="Panel" parent="Backpack/TrashSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1981,7 +1981,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("37_dtq81")
 
-[node name="Panel30" type="Panel" parent="Backpack/TrashSlots" unique_id=1732002402]
+[node name="Panel30" type="Panel" parent="Backpack/TrashSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1997,7 +1997,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("37_dtq81")
 
-[node name="Panel31" type="Panel" parent="Backpack/TrashSlots" unique_id=77240105]
+[node name="Panel31" type="Panel" parent="Backpack/TrashSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2013,7 +2013,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("37_dtq81")
 
-[node name="Panel32" type="Panel" parent="Backpack/TrashSlots" unique_id=796145910]
+[node name="Panel32" type="Panel" parent="Backpack/TrashSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2029,7 +2029,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("37_dtq81")
 
-[node name="Panel33" type="Panel" parent="Backpack/TrashSlots" unique_id=1729348323]
+[node name="Panel33" type="Panel" parent="Backpack/TrashSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2045,7 +2045,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("37_dtq81")
 
-[node name="Panel34" type="Panel" parent="Backpack/TrashSlots" unique_id=1805045602]
+[node name="Panel34" type="Panel" parent="Backpack/TrashSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2061,7 +2061,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("37_dtq81")
 
-[node name="Panel35" type="Panel" parent="Backpack/TrashSlots" unique_id=206159364]
+[node name="Panel35" type="Panel" parent="Backpack/TrashSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2077,7 +2077,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("37_dtq81")
 
-[node name="Panel36" type="Panel" parent="Backpack/TrashSlots" unique_id=1212875832]
+[node name="Panel36" type="Panel" parent="Backpack/TrashSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2093,7 +2093,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("37_dtq81")
 
-[node name="Panel37" type="Panel" parent="Backpack/TrashSlots" unique_id=192008609]
+[node name="Panel37" type="Panel" parent="Backpack/TrashSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2109,7 +2109,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("37_dtq81")
 
-[node name="FoodSlots" type="Control" parent="Backpack" unique_id=456597861]
+[node name="FoodSlots" type="Control" parent="Backpack"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -2117,7 +2117,7 @@ offset_bottom = 40.0
 script = ExtResource("31_r1w80")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel14" type="Panel" parent="Backpack/FoodSlots" unique_id=1306692498]
+[node name="Panel14" type="Panel" parent="Backpack/FoodSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2134,7 +2134,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("38_2nqqs")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel15" type="Panel" parent="Backpack/FoodSlots" unique_id=2076491877]
+[node name="Panel15" type="Panel" parent="Backpack/FoodSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2150,7 +2150,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("38_2nqqs")
 
-[node name="Panel16" type="Panel" parent="Backpack/FoodSlots" unique_id=320079767]
+[node name="Panel16" type="Panel" parent="Backpack/FoodSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2166,7 +2166,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("38_2nqqs")
 
-[node name="Panel17" type="Panel" parent="Backpack/FoodSlots" unique_id=1581219278]
+[node name="Panel17" type="Panel" parent="Backpack/FoodSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2182,7 +2182,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("38_2nqqs")
 
-[node name="Panel18" type="Panel" parent="Backpack/FoodSlots" unique_id=2039560345]
+[node name="Panel18" type="Panel" parent="Backpack/FoodSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2198,7 +2198,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("38_2nqqs")
 
-[node name="Panel19" type="Panel" parent="Backpack/FoodSlots" unique_id=1863028662]
+[node name="Panel19" type="Panel" parent="Backpack/FoodSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2214,7 +2214,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("38_2nqqs")
 
-[node name="Panel20" type="Panel" parent="Backpack/FoodSlots" unique_id=1057398914]
+[node name="Panel20" type="Panel" parent="Backpack/FoodSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2230,7 +2230,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("38_2nqqs")
 
-[node name="Panel21" type="Panel" parent="Backpack/FoodSlots" unique_id=101869060]
+[node name="Panel21" type="Panel" parent="Backpack/FoodSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2246,7 +2246,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("38_2nqqs")
 
-[node name="Panel22" type="Panel" parent="Backpack/FoodSlots" unique_id=134250081]
+[node name="Panel22" type="Panel" parent="Backpack/FoodSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2262,7 +2262,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("38_2nqqs")
 
-[node name="Panel23" type="Panel" parent="Backpack/FoodSlots" unique_id=29172171]
+[node name="Panel23" type="Panel" parent="Backpack/FoodSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2278,7 +2278,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("38_2nqqs")
 
-[node name="Panel24" type="Panel" parent="Backpack/FoodSlots" unique_id=2052183850]
+[node name="Panel24" type="Panel" parent="Backpack/FoodSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2294,7 +2294,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("38_2nqqs")
 
-[node name="Panel25" type="Panel" parent="Backpack/FoodSlots" unique_id=1932052810]
+[node name="Panel25" type="Panel" parent="Backpack/FoodSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2310,14 +2310,14 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("38_2nqqs")
 
-[node name="WeaponSlots" type="Control" parent="Backpack" unique_id=848874854]
+[node name="WeaponSlots" type="Control" parent="Backpack"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("31_rlgn4")
 
-[node name="Panel2" type="Panel" parent="Backpack/WeaponSlots" unique_id=1240682296]
+[node name="Panel2" type="Panel" parent="Backpack/WeaponSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2333,7 +2333,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("36_8ysek")
 
-[node name="Panel3" type="Panel" parent="Backpack/WeaponSlots" unique_id=577745630]
+[node name="Panel3" type="Panel" parent="Backpack/WeaponSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2349,7 +2349,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("36_8ysek")
 
-[node name="Panel4" type="Panel" parent="Backpack/WeaponSlots" unique_id=1265297285]
+[node name="Panel4" type="Panel" parent="Backpack/WeaponSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2365,7 +2365,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("36_8ysek")
 
-[node name="Panel5" type="Panel" parent="Backpack/WeaponSlots" unique_id=203041449]
+[node name="Panel5" type="Panel" parent="Backpack/WeaponSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2381,7 +2381,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("36_8ysek")
 
-[node name="Panel6" type="Panel" parent="Backpack/WeaponSlots" unique_id=1775511832]
+[node name="Panel6" type="Panel" parent="Backpack/WeaponSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2397,7 +2397,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("36_8ysek")
 
-[node name="Panel7" type="Panel" parent="Backpack/WeaponSlots" unique_id=284519389]
+[node name="Panel7" type="Panel" parent="Backpack/WeaponSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2413,7 +2413,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("36_8ysek")
 
-[node name="Panel8" type="Panel" parent="Backpack/WeaponSlots" unique_id=2112336562]
+[node name="Panel8" type="Panel" parent="Backpack/WeaponSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2429,7 +2429,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("36_8ysek")
 
-[node name="Panel9" type="Panel" parent="Backpack/WeaponSlots" unique_id=1487006664]
+[node name="Panel9" type="Panel" parent="Backpack/WeaponSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2445,7 +2445,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("36_8ysek")
 
-[node name="Panel10" type="Panel" parent="Backpack/WeaponSlots" unique_id=269896344]
+[node name="Panel10" type="Panel" parent="Backpack/WeaponSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2461,7 +2461,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("36_8ysek")
 
-[node name="Panel11" type="Panel" parent="Backpack/WeaponSlots" unique_id=636984848]
+[node name="Panel11" type="Panel" parent="Backpack/WeaponSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2477,7 +2477,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("36_8ysek")
 
-[node name="Panel12" type="Panel" parent="Backpack/WeaponSlots" unique_id=1825346415]
+[node name="Panel12" type="Panel" parent="Backpack/WeaponSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2493,7 +2493,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("36_8ysek")
 
-[node name="Panel13" type="Panel" parent="Backpack/WeaponSlots" unique_id=945955338]
+[node name="Panel13" type="Panel" parent="Backpack/WeaponSlots"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2509,50 +2509,50 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi4n4")
 script = ExtResource("36_8ysek")
 
-[node name="SuperSpring" parent="." unique_id=1100422652 instance=ExtResource("42_5ded4")]
+[node name="SuperSpring" parent="." instance=ExtResource("42_5ded4")]
 position = Vector2(1290, -171)
 rotation = 0.84648466
 
-[node name="SuperSpring2" parent="." unique_id=1497022112 instance=ExtResource("42_5ded4")]
+[node name="SuperSpring2" parent="." instance=ExtResource("42_5ded4")]
 position = Vector2(1334, -197)
 rotation = -1.2217305
 
-[node name="SuperSpring3" parent="." unique_id=1277928713 instance=ExtResource("42_5ded4")]
+[node name="SuperSpring3" parent="." instance=ExtResource("42_5ded4")]
 position = Vector2(1289, -220.99995)
 rotation = 1.2217305
 
-[node name="SuperSpring4" parent="." unique_id=330252698 instance=ExtResource("42_5ded4")]
+[node name="SuperSpring4" parent="." instance=ExtResource("42_5ded4")]
 position = Vector2(1334, -237)
 rotation = -1.2217305
 
-[node name="SuperSpring5" parent="." unique_id=2089170977 instance=ExtResource("42_5ded4")]
+[node name="SuperSpring5" parent="." instance=ExtResource("42_5ded4")]
 position = Vector2(1288.9999, -261.99997)
 rotation = 1.2217305
 
-[node name="SuperSpring6" parent="." unique_id=251235628 instance=ExtResource("42_5ded4")]
+[node name="SuperSpring6" parent="." instance=ExtResource("42_5ded4")]
 position = Vector2(1334, -277)
 rotation = -1.2217305
 
-[node name="SuperSpring7" parent="." unique_id=1373315078 instance=ExtResource("42_5ded4")]
+[node name="SuperSpring7" parent="." instance=ExtResource("42_5ded4")]
 position = Vector2(1289, -298.99994)
 rotation = 1.2217305
 
-[node name="SuperSpring8" parent="." unique_id=322858630 instance=ExtResource("42_5ded4")]
+[node name="SuperSpring8" parent="." instance=ExtResource("42_5ded4")]
 position = Vector2(1333.9999, -317.99988)
 rotation = -1.2217305
 
-[node name="SuperSpring9" parent="." unique_id=704318751 instance=ExtResource("42_5ded4")]
+[node name="SuperSpring9" parent="." instance=ExtResource("42_5ded4")]
 position = Vector2(1291, -342.99973)
 rotation = 1.3386675
 
-[node name="ItemParent" type="Node2D" parent="." unique_id=815533669]
+[node name="ItemParent" type="Node2D" parent="."]
 
-[node name="THE_MANAGER" type="Node" parent="." unique_id=2008161279]
+[node name="THE_MANAGER" type="Node" parent="."]
 script = ExtResource("38_glfii")
 
-[node name="EscMenu" type="CanvasLayer" parent="THE_MANAGER" unique_id=278993965]
+[node name="EscMenu" type="CanvasLayer" parent="THE_MANAGER"]
 
-[node name="Panel" type="Panel" parent="THE_MANAGER/EscMenu" unique_id=1249020756]
+[node name="Panel" type="Panel" parent="THE_MANAGER/EscMenu"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2566,7 +2566,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3unfj")
 
-[node name="Save_quit" type="Button" parent="THE_MANAGER/EscMenu" unique_id=1598656319]
+[node name="Save_quit" type="Button" parent="THE_MANAGER/EscMenu"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2583,7 +2583,7 @@ theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_sa2xw")
 text = "Save and quit"
 
-[node name="Save" type="Button" parent="THE_MANAGER/EscMenu" unique_id=1017363655]
+[node name="Save" type="Button" parent="THE_MANAGER/EscMenu"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2600,19 +2600,19 @@ theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_sa2xw")
 text = "Save"
 
-[node name="potato" type="Area2D" parent="." unique_id=1243186323]
+[node name="potato" type="Area2D" parent="."]
 position = Vector2(-15, 206)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("41_s1qs1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="potato" unique_id=284877421]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="potato"]
 position = Vector2(-9, -180)
 shape = SubResource("RectangleShape2D_42grw")
 
-[node name="FoodUI" type="CanvasLayer" parent="potato" unique_id=334322284]
+[node name="FoodUI" type="CanvasLayer" parent="potato"]
 
-[node name="Panel" type="Panel" parent="potato/FoodUI" unique_id=1322447633]
+[node name="Panel" type="Panel" parent="potato/FoodUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2627,12 +2627,12 @@ grow_vertical = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_hfe4e")
 
-[node name="potato" type="Sprite2D" parent="potato/FoodUI/Panel" unique_id=804440071]
+[node name="potato" type="Sprite2D" parent="potato/FoodUI/Panel"]
 position = Vector2(260.46594, 203.1579)
 scale = Vector2(0.171, 0.171)
 texture = ExtResource("42_2nqqs")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="potato/FoodUI" unique_id=1570359075]
+[node name="RichTextLabel" type="RichTextLabel" parent="potato/FoodUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2652,30 +2652,30 @@ text = "		You have obtained a
 
 	Press B to open backpack"
 
-[node name="potato" type="Sprite2D" parent="potato" unique_id=969465217]
+[node name="potato" type="Sprite2D" parent="potato"]
 position = Vector2(-10, -172)
 scale = Vector2(0.029749935, 0.029749935)
 texture = ExtResource("42_2nqqs")
 script = ExtResource("44_42grw")
 
-[node name="HeartContainer" type="Area2D" parent="." unique_id=863517171]
+[node name="HeartContainer" type="Area2D" parent="."]
 position = Vector2(-124.99994, 611.99994)
 scale = Vector2(1.795, 1.795)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("45_jr7nx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HeartContainer" unique_id=1442929349]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeartContainer"]
 position = Vector2(-10, -172)
 shape = SubResource("RectangleShape2D_jr7nx")
 
-[node name="Heart" type="Sprite2D" parent="HeartContainer" unique_id=1447255464]
+[node name="Heart" type="Sprite2D" parent="HeartContainer"]
 position = Vector2(-10, -172)
 scale = Vector2(0.029749935, 0.029749935)
 texture = ExtResource("45_tme2b")
 script = ExtResource("47_ilqbo")
 
-[node name="GlassBottle" type="Area2D" parent="." unique_id=692437261]
+[node name="GlassBottle" type="Area2D" parent="."]
 position = Vector2(7.41, -170.31)
 rotation = -0.38048178
 scale = Vector2(0.029999997, 0.029999997)
@@ -2683,15 +2683,15 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("48_1w71i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GlassBottle" unique_id=883389724]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GlassBottle"]
 position = Vector2(-9.263311, -180.8454)
 rotation = 1.2688544
 scale = Vector2(35.505, 35.505)
 shape = SubResource("RectangleShape2D_1w71i")
 
-[node name="FoodUI" type="CanvasLayer" parent="GlassBottle" unique_id=321079162]
+[node name="FoodUI" type="CanvasLayer" parent="GlassBottle"]
 
-[node name="Panel" type="Panel" parent="GlassBottle/FoodUI" unique_id=278539908]
+[node name="Panel" type="Panel" parent="GlassBottle/FoodUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2706,12 +2706,12 @@ grow_vertical = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_hfe4e")
 
-[node name="potato" type="Sprite2D" parent="GlassBottle/FoodUI/Panel" unique_id=1549323109]
+[node name="potato" type="Sprite2D" parent="GlassBottle/FoodUI/Panel"]
 position = Vector2(260.46594, 203.1579)
 scale = Vector2(0.171, 0.171)
 texture = ExtResource("48_ffl1k")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="GlassBottle/FoodUI" unique_id=1483900942]
+[node name="RichTextLabel" type="RichTextLabel" parent="GlassBottle/FoodUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2731,40 +2731,40 @@ text = "		You have obtained a
 
 	Press B to open backpack"
 
-[node name="bottleofwattta" type="Sprite2D" parent="GlassBottle" unique_id=554100698]
+[node name="bottleofwattta" type="Sprite2D" parent="GlassBottle"]
 position = Vector2(-9, -180)
 rotation = 1.282817
 texture = ExtResource("48_ffl1k")
 script = ExtResource("50_d6l7g")
 
-[node name="Shopkeeper" type="Area2D" parent="." unique_id=145047487]
+[node name="Shopkeeper" type="Area2D" parent="."]
 position = Vector2(1251, -69)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("54_3unfj")
 
-[node name="Villager" type="Sprite2D" parent="Shopkeeper" unique_id=1665446896]
+[node name="Villager" type="Sprite2D" parent="Shopkeeper"]
 position = Vector2(-105.84374, 20.126646)
 scale = Vector2(0.05008656, 0.050086576)
 texture = ExtResource("54_1ovni")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Shopkeeper" unique_id=711451544]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shopkeeper"]
 position = Vector2(-106, 20)
 shape = SubResource("CapsuleShape2D_3unfj")
 
-[node name="potato2" type="Area2D" parent="." unique_id=1307862550]
+[node name="potato2" type="Area2D" parent="."]
 position = Vector2(488, -113)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("41_s1qs1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="potato2" unique_id=996291434]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="potato2"]
 position = Vector2(-9, -180)
 shape = SubResource("RectangleShape2D_42grw")
 
-[node name="FoodUI" type="CanvasLayer" parent="potato2" unique_id=1590316381]
+[node name="FoodUI" type="CanvasLayer" parent="potato2"]
 
-[node name="Panel" type="Panel" parent="potato2/FoodUI" unique_id=2068209531]
+[node name="Panel" type="Panel" parent="potato2/FoodUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2779,12 +2779,12 @@ grow_vertical = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_hfe4e")
 
-[node name="potato" type="Sprite2D" parent="potato2/FoodUI/Panel" unique_id=913825174]
+[node name="potato" type="Sprite2D" parent="potato2/FoodUI/Panel"]
 position = Vector2(260.46594, 203.1579)
 scale = Vector2(0.171, 0.171)
 texture = ExtResource("42_2nqqs")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="potato2/FoodUI" unique_id=186964127]
+[node name="RichTextLabel" type="RichTextLabel" parent="potato2/FoodUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2804,25 +2804,25 @@ text = "		You have obtained a
 
 	Press B to open backpack"
 
-[node name="potato" type="Sprite2D" parent="potato2" unique_id=591522807]
+[node name="potato" type="Sprite2D" parent="potato2"]
 position = Vector2(-10, -172)
 scale = Vector2(0.029749935, 0.029749935)
 texture = ExtResource("42_2nqqs")
 script = ExtResource("44_42grw")
 
-[node name="potato3" type="Area2D" parent="." unique_id=832787805]
+[node name="potato3" type="Area2D" parent="."]
 position = Vector2(817, -209)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("41_s1qs1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="potato3" unique_id=479859456]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="potato3"]
 position = Vector2(-9, -180)
 shape = SubResource("RectangleShape2D_42grw")
 
-[node name="FoodUI" type="CanvasLayer" parent="potato3" unique_id=662565361]
+[node name="FoodUI" type="CanvasLayer" parent="potato3"]
 
-[node name="Panel" type="Panel" parent="potato3/FoodUI" unique_id=557767639]
+[node name="Panel" type="Panel" parent="potato3/FoodUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2837,12 +2837,12 @@ grow_vertical = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_hfe4e")
 
-[node name="potato" type="Sprite2D" parent="potato3/FoodUI/Panel" unique_id=311554759]
+[node name="potato" type="Sprite2D" parent="potato3/FoodUI/Panel"]
 position = Vector2(260.46594, 203.1579)
 scale = Vector2(0.171, 0.171)
 texture = ExtResource("42_2nqqs")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="potato3/FoodUI" unique_id=1802683183]
+[node name="RichTextLabel" type="RichTextLabel" parent="potato3/FoodUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2862,25 +2862,25 @@ text = "		You have obtained a
 
 	Press B to open backpack"
 
-[node name="potato" type="Sprite2D" parent="potato3" unique_id=448391674]
+[node name="potato" type="Sprite2D" parent="potato3"]
 position = Vector2(-10, -172)
 scale = Vector2(0.029749935, 0.029749935)
 texture = ExtResource("42_2nqqs")
 script = ExtResource("44_42grw")
 
-[node name="potato4" type="Area2D" parent="." unique_id=1883113121]
+[node name="potato4" type="Area2D" parent="."]
 position = Vector2(826, -209)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("41_s1qs1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="potato4" unique_id=135184421]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="potato4"]
 position = Vector2(-9, -180)
 shape = SubResource("RectangleShape2D_42grw")
 
-[node name="FoodUI" type="CanvasLayer" parent="potato4" unique_id=2140700889]
+[node name="FoodUI" type="CanvasLayer" parent="potato4"]
 
-[node name="Panel" type="Panel" parent="potato4/FoodUI" unique_id=429695991]
+[node name="Panel" type="Panel" parent="potato4/FoodUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2895,12 +2895,12 @@ grow_vertical = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_hfe4e")
 
-[node name="potato" type="Sprite2D" parent="potato4/FoodUI/Panel" unique_id=816085063]
+[node name="potato" type="Sprite2D" parent="potato4/FoodUI/Panel"]
 position = Vector2(260.46594, 203.1579)
 scale = Vector2(0.171, 0.171)
 texture = ExtResource("42_2nqqs")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="potato4/FoodUI" unique_id=1060302432]
+[node name="RichTextLabel" type="RichTextLabel" parent="potato4/FoodUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2920,25 +2920,25 @@ text = "		You have obtained a
 
 	Press B to open backpack"
 
-[node name="potato" type="Sprite2D" parent="potato4" unique_id=1071834116]
+[node name="potato" type="Sprite2D" parent="potato4"]
 position = Vector2(-10, -172)
 scale = Vector2(0.029749935, 0.029749935)
 texture = ExtResource("42_2nqqs")
 script = ExtResource("44_42grw")
 
-[node name="potato5" type="Area2D" parent="." unique_id=2081967915]
+[node name="potato5" type="Area2D" parent="."]
 position = Vector2(-3, 206)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("41_s1qs1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="potato5" unique_id=1239450974]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="potato5"]
 position = Vector2(-9, -180)
 shape = SubResource("RectangleShape2D_42grw")
 
-[node name="FoodUI" type="CanvasLayer" parent="potato5" unique_id=1704588658]
+[node name="FoodUI" type="CanvasLayer" parent="potato5"]
 
-[node name="Panel" type="Panel" parent="potato5/FoodUI" unique_id=1695907568]
+[node name="Panel" type="Panel" parent="potato5/FoodUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2953,12 +2953,12 @@ grow_vertical = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_hfe4e")
 
-[node name="potato" type="Sprite2D" parent="potato5/FoodUI/Panel" unique_id=281852636]
+[node name="potato" type="Sprite2D" parent="potato5/FoodUI/Panel"]
 position = Vector2(260.46594, 203.1579)
 scale = Vector2(0.171, 0.171)
 texture = ExtResource("42_2nqqs")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="potato5/FoodUI" unique_id=1010476972]
+[node name="RichTextLabel" type="RichTextLabel" parent="potato5/FoodUI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2978,33 +2978,33 @@ text = "		You have obtained a
 
 	Press B to open backpack"
 
-[node name="potato" type="Sprite2D" parent="potato5" unique_id=1086094148]
+[node name="potato" type="Sprite2D" parent="potato5"]
 position = Vector2(-10, -172)
 scale = Vector2(0.029749935, 0.029749935)
 texture = ExtResource("42_2nqqs")
 script = ExtResource("44_42grw")
 
-[node name="Checkpoint" type="Area2D" parent="." unique_id=659573268]
+[node name="Checkpoint" type="Area2D" parent="."]
 position = Vector2(658, -349)
 scale = Vector2(1.028, 1.01)
 collision_mask = 2
 script = ExtResource("56_5ded4")
 
-[node name="Spawn Point" type="AnimatedSprite2D" parent="Checkpoint" unique_id=610509158]
+[node name="Spawn Point" type="AnimatedSprite2D" parent="Checkpoint"]
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_a1hds")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.88028634
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint" unique_id=501762128]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
 position = Vector2(0.35046387, -55.891174)
 scale = Vector2(0.9999997, 0.9999997)
 shape = SubResource("RectangleShape2D_mbb26")
 
-[node name="RespawnPoint" type="Marker2D" parent="Checkpoint" unique_id=1095134541]
+[node name="RespawnPoint" type="Marker2D" parent="Checkpoint"]
 
-[node name="Tree" type="AnimatedSprite2D" parent="." unique_id=540891862]
+[node name="Tree" type="AnimatedSprite2D" parent="."]
 position = Vector2(612, -367)
 scale = Vector2(1.028, 1.01)
 sprite_frames = SubResource("SpriteFrames_udf7m")
@@ -3013,30 +3013,30 @@ autoplay = "Idle"
 frame = 4
 frame_progress = 0.8785394
 
-[node name="DialogBoxes" type="Node" parent="." unique_id=890155826]
+[node name="DialogBoxes" type="Node" parent="."]
 
-[node name="DialogArea" parent="DialogBoxes" unique_id=795081304 instance=ExtResource("70_ddj28")]
+[node name="DialogArea" parent="DialogBoxes" instance=ExtResource("70_ddj28")]
 text_key = "tree_guy"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogBoxes/DialogArea" unique_id=1754048881]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogBoxes/DialogArea"]
 position = Vector2(610, -364)
 shape = SubResource("RectangleShape2D_ddj28")
 
-[node name="DialogPlayer" parent="DialogBoxes" unique_id=291296602 instance=ExtResource("71_qofse")]
+[node name="DialogPlayer" parent="DialogBoxes" instance=ExtResource("71_qofse")]
 process_mode = 3
 scene_text_file = "res://json/dialog-word1.json"
 
-[node name="Player" parent="." unique_id=1728240010 instance=ExtResource("1_5otrc")]
+[node name="Player" parent="." instance=ExtResource("1_5otrc")]
 z_index = 1
 position = Vector2(1129, -389)
 
-[node name="Staff" type="Sprite2D" parent="Player" unique_id=1890323948]
+[node name="Staff" type="Sprite2D" parent="Player"]
 position = Vector2(136.5, 327.28125)
 scale = Vector2(1.46875, 1.46875)
 texture = ExtResource("36_4ui5i")
 script = ExtResource("4_oodb0")
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=891364946]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(37, 15)
 zoom = Vector2(4.995, 4.995)
 limit_left = -10000086
@@ -3045,7 +3045,7 @@ limit_right = 9999914
 limit_bottom = 75
 rotation_smoothing_enabled = true
 
-[node name="Spring" parent="." unique_id=1502011236 instance=ExtResource("74_qt34g")]
+[node name="Spring" parent="." instance=ExtResource("74_qt34g")]
 position = Vector2(1634, -273)
 rotation = -0.70685834
 
