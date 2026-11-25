@@ -528,7 +528,7 @@ func give_flowers(amount: int) -> void:
 func _ready() -> void:
 	add_to_group("saveable")
 	
-	global_position = TheManager.spawnPosition
+
 	
 	default_sprite_scale = animated_sprite_2d.scale
 	dash_timer.one_shot = true

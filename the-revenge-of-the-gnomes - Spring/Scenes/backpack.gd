@@ -3,10 +3,15 @@ extends CanvasLayer
 @onready var trash_slots: Control = $TrashSlots
 @onready var food_slots: Control = $FoodSlots
 @onready var weapon_slots: Control = $WeaponSlots
+@onready var potato_sprite: Sprite2D = $"../potato2/FoodUI/Panel/potato"
 
 var weapons: Array [Sprite2D] = []
+var weapons_data = []
 var foods: Array [Sprite2D] = []
+var foods_data = []
 var garbage: Array [Sprite2D] = []
+var garbage_data = []
+
 
 func update_ui():
 	weapon_slots.clear_slots()
@@ -42,6 +47,7 @@ func update_ui():
 		print(panel.get_child_count())
 		
 func addweapon(weapon: Sprite2D):
+	weapons_data.append(weapon.name)
 	weapons.append(weapon)
 	for w in weapons:
 		print(w.name)
@@ -50,6 +56,7 @@ func addweapon(weapon: Sprite2D):
 	update_ui()
 	
 func addfood(food: Sprite2D):
+	foods_data.append(food.name)
 	foods.append(food)
 	for f in foods:
 		print(f.name)
@@ -58,13 +65,21 @@ func addfood(food: Sprite2D):
 	update_ui()
 	
 func addtrash(trash: Sprite2D):
+	garbage_data.append(trash.name)
 	garbage.append(trash)
 	for t in garbage:
 		print(t.name)
 	if(trash.get_parent() != null):
 		trash.get_parent().remove_child(trash)
 	update_ui()
-	
+
+func update_load():
+	print(foods_data)
+	#var currentfood = foods_data
+	#for food in currentfood:
+	#	if food == "potato":
+	#		addfood(potato_sprite)
+			
 	
 var Open = false
 @onready var staff: Sprite2D = $"../Player/Staff"

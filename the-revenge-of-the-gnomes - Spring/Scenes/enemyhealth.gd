@@ -9,8 +9,9 @@ var health = 6.0
 @onready var battle_ui: ColorRect = $"../CanvasLayer/BattleUI"
 @onready var the_manager: Node = $"../THE_MANAGER"
 @onready var tree_guy: AnimatedSprite2D = $"../Tree"
+@export var enemy_id = 0
 
-
+var dead = false
 var wait = false
 var attack = true
 var encountered = false
@@ -21,6 +22,7 @@ func Take_Damage(damage: float) -> void:
 	if health <= 0:
 		print("ENEMEY IS Resting in piss")
 		battle_ui.endbattle()
+		TheManager.save_enemy(enemy_id)
 		tree_guy.queue_free()
 		queue_free()
 		
@@ -44,7 +46,7 @@ func getdamage(enemy_distance):
 		print("MISSED ZONES!")
 	var final_damage = 0
 	
-	player_damage = the_manager.get_damage()
+	player_damage = TheManager.get_damage()
 	# 4. Calculate final damage
 	if (attack == true):
 		final_damage = player_damage * damage_multiplier
@@ -99,7 +101,10 @@ func resetstats():
 	print("restarting")
 
 func _ready():
-	add_to_group("saveable")
+	for enemys in TheManager.dead_enemy:
+		if enemys == enemy_id:
+			tree_guy.queue_free()
+			queue_free()
 
 
 func get_save_data():
